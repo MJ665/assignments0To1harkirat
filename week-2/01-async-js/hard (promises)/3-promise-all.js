@@ -6,17 +6,46 @@
 
 
 function waitOneSecond() {
+    return promise=new Promise ((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("we resolved this after 1 second")
+        },1000)
+    })
 
 }
 
 function waitTwoSecond() {
+    return promise = new Promise ((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("we resolved this after 2 second")
+        },2000)
+    })
 
 }
 
 function waitThreeSecond() {
+    return promise = new Promise ((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("we resolved this after 3 second")
+        },3000)
+    })
 
 }
 
-function calculateTime() {
-
+async function calculateTime() {
+ let start = new Date()   
+await Promise.all([waitOneSecond(),waitTwoSecond(),waitThreeSecond()]).then((values)=>{
+    console.log(values)
+})
+let end = new Date ()
+console.log("the time required in seconds is "+ ((end - start)/1000))
 }
+calculateTime()
+
+// output
+// [
+//     'we resolved this after 1 second',
+//     'we resolved this after 2 second',
+//     'we resolved this after 3 second'
+//   ]
+//   the time required in seconds is 3.028

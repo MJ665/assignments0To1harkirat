@@ -5,18 +5,54 @@
  * Compare it with the results from 3-promise-all.js
  */
 
+const { rejects } = require("assert");
+
 function waitOneSecond() {
+    return promise = new Promise ((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("we are resolving it after 1 second")
+        },1000)
+    })
 
 }
 
 function waitTwoSecond() {
-
+return promise  = new Promise ((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve("we are resolving it after 2 second")
+    },2000)
+})
 }
 
 function waitThreeSecond() {
+    return promise  = new Promise ((resolve,reject)=>{
+        setTimeout(()=>{
+            resolve("we are resolving it after 3 second")
+        },3000)
+    })
 
 }
 
-function calculateTime() {
+async function calculateTimeWithConsoleTime() {
+    console.log("we are starting the console.time")
+    console.time ()
+    await waitOneSecond() 
+    await waitTwoSecond()
+    await waitThreeSecond()
+    console.timeEnd()
+    
+}
+async function calculateTimeByDateModule(){
+    let start  = new Date ()
+    await waitOneSecond()
+    await waitTwoSecond()
+    await waitThreeSecond()
+    let end = new Date ()
+    console.log("we are printing the time withe date module")
+    console.log("time took in second is : " + ((end - start)/1000))
+
 
 }
+calculateTimeWithConsoleTime()
+calculateTimeByDateModule()
+
