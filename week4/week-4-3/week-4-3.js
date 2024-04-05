@@ -20,4 +20,4 @@ const CourseSchema=new mongoose.Schema({
 const User = mongoose.model("User",UserSchema)
 const Course = mongoose.model("Course",CourseSchema)
 
-app.listen (3000,()=>{console.log("listening on 3000")})
+app.listen (3000,()=>{console.log("listening on 3000")});
