@@ -10,7 +10,10 @@ async function adminMiddleware (req, res, next) {
         const CleanedToken = await token.split(" ")
 
         const decode = await jwt.verify(CleanedToken[1],jwtPassword)
-        next()
+        if(decode.username){
+
+            next()
+        }else{res.status(403).json({msg:"you are not authenticated"})}
 
 
     }

@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 const dotenv = require("dotenv")
-dotenv.config({path:"../.env"})
+const path= require("path")
+dotenv.config({path:path.resolve(__dirname,"../.env")})
 
 mongoose.connect(process.env.MONGO_URL);
 // Connect to MongoDB
@@ -15,13 +16,12 @@ const AdminSchema = new mongoose.Schema({
 });
 
 const UserSchema = new mongoose.Schema({
-    // Schema definition here
-    username:String,
-    password:String,
-    purchasedCourse:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Course"
-    }
+    username: String,
+    password: String,
+    purchasedCourses: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course"
+    }]
 });
 
 const CourseSchema = new mongoose.Schema({
@@ -30,7 +30,7 @@ const CourseSchema = new mongoose.Schema({
     description:String,
     price:Number,
     imageLink:String,
-    published:Boolean
+
 });
 
 const Admin = mongoose.model('Admin', AdminSchema);
