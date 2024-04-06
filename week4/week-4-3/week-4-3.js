@@ -39,17 +39,17 @@ User.deleteOne({
     username:"hkirat@gmail.com"
 })                           
 
-User.find
-User.findById
-User.findOne
-User.findByIdAndDelete
-User.findByIdAndUpdate
-User.findOneAndDelete
-User.findOneAndReplace
-User.findOneAndUpdate
-User.find
-User.updateMany
-User.updateOne
+// User.find
+// User.findById
+// User.findOne
+// User.findByIdAndDelete
+// User.findByIdAndUpdate
+// User.findOneAndDelete
+// User.findOneAndReplace
+// User.findOneAndUpdate
+// User.find
+// User.updateMany
+// User.updateOne
 
 
 app.listen (3000,()=>{console.log("listening on 3000")});
