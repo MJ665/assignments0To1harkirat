@@ -20,7 +20,7 @@ const UserSchema = new mongoose.Schema({
     password:String,
     purchasedCourse:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:Course
+        ref:"Course"
     }
 });
 
