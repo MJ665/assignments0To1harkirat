@@ -3,45 +3,73 @@ const app = express()
 const path = require("path")
 const dotenv=require("dotenv")
 dotenv.config({path:path.resolve(__dirname,"./.env")})
-const port = process.env.PORT
-const mongo_url = process.env.MONGO_URL
+const port = parseInt(process.env.PORT)
+const MONGO_URL= process.env.MONGO_URL
 const jwtPassword = process.env.JWT_PASSWORD
 const zod = require("zod")
 const {createTodo,updateTodo} = require("./types")
 const mongoose = require("mongoose")
+const {todo} = require("./db")
 
 
 app.use(express.json())
-app.post("/todos",function async(req,res){
-    const title = req.body.title
-    const description = req.body.descriptione
-    const  todoCreation = createTodo.safeParse({title:title,description:description})
-if(!todoCreation){
-res.status (400).json({err:"todo not safeparsed", err:todoCreation.error})
-}else{
-    // put it in mongoDb
-}
-
-})
-
-app.get("/todos",function async(req,res){
-
-})
-
-app.put("/completed",function async(req,res){
-    const updatePayload = req.body
-    const parsePayload = updateTodo.safeParse(updatePayload)
-    if(!parsePayload){res.status(400).json({msg:"not able to parse the update todo",err:parsePayload.error})}
-    else{
-        // update in mongo
+app.post("/todos", async function (req, res) {
+    try {
+        const title = await req.body.title;
+        const description = await  req.body.description;
+        const status = await req.body.completed
+        const todoCreation = await createTodo.safeParse({ title: title, description: description, completed: status });
+        if (!todoCreation.success) {
+            res.status(400).json({ err: "todo not safeparsed", error: todoCreation.error });
+        } else {
+            // put it in mongoDb
+            await todo.create({
+                title: title,
+                description: description,completed:status
+            });
+            res.json({ msg: "todo created" });
+        }
+    } catch (error) {
+        // Handle JSON parsing error
+        console.error("JSON parsing error:", error);
+        res.status(400).json({ error: "Invalid JSON format", err:error });
     }
+});
+
+
+app.get("/todos",async function(req,res){
+    try{const todos = await todo.find({})
+res.status(200).json({todos:todos})}
+    catch(err){res.status(400).json({msg:"cant get the todo"})}
+    
+
 })
+
+app.put("/completed", async function(req, res) {
+    const updatePayload = req.body;
+    const parsePayload = updateTodo.safeParse(updatePayload);
+    if (!parsePayload.success) {
+        res.status(400).json({ msg: "not able to parse the update todo", err: parsePayload.error });
+    } else {
+        try {
+            const updatedTodo = await todo.findByIdAndUpdate(req.body.id, { completed: true });
+            if (!updatedTodo) {
+                return res.status(404).json({ msg: "Todo not found" });
+            }
+            res.status(200).json({ msg: "todo updated" });
+        } catch (err) {
+            res.status(400).json({ msg: "update todo failed" });
+        }
+    }
+});
+
 
 app .listen(port,()=>{console.log("we are running server on " + port)})
 
 
 module.exports= {
-    port:port,
-    mongo_url : mongo_url,
-    jwtPassword : jwtPassword
+    port:"qafdadsfaedfadsfdsfe",
+    jwtPassword : jwtPassword,
+
 }
+
