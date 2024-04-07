@@ -97,7 +97,7 @@ return (
 <button onClick = {addTodo}>add a random new todo</button>
 
 
-
+<DummyButton></DummyButton>
 
   </div>
 )
@@ -108,6 +108,15 @@ function Todos (props){
     <h1>{props.title}</h1>
     <h2>{props.description}</h2>
   </div>
+}
+
+// this helps to understand whenever the parent re renders the child re renders
+// the dummy button is taking no props it is literrally not getting changed when the state is changing 
+// but its parent is re rendering when the state is changing hence 
+// child re renders when the parent re renders it can be prevented by the memo hook
+function DummyButton (){
+  console.log("i am re rendering")
+  return <button>this is the dummy button</button>
 }
 
 
