@@ -4,15 +4,16 @@ const path = require("path")
 const dotenv=require("dotenv")
 dotenv.config({path:path.resolve(__dirname,"./.env")})
 const port = parseInt(process.env.PORT)
-const MONGO_URL= process.env.MONGO_URL
+
 const jwtPassword = process.env.JWT_PASSWORD
-const zod = require("zod")
+
 const {createTodo,updateTodo} = require("./types")
-const mongoose = require("mongoose")
+
 const {todo} = require("./db")
 
-
+const cors = require ("cors")
 app.use(express.json())
+app.use(cors({origin:"http://localhost:5173"}))
 app.post("/todos", async function (req, res) {
     try {
         const title = await req.body.title;
