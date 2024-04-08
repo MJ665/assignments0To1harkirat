@@ -84,3 +84,6 @@ function App() {
 }
 
 export default App;
+
+
+// Hence we have finally completed the todo application?
