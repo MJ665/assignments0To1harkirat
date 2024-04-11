@@ -309,21 +309,17 @@
 
 
 
-
-
-
-
 import "./App.css";
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [sum, setSum] = useState([]);
+  const [todo, setTodo] = useState([]);
 
   useEffect(() => {
     fetch("https://sum-server.100xdevs.com/todos")
       .then(async (res) => {
         const json = await res.json();
-        setSum(json);
+        setTodo(json.todos);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -334,9 +330,12 @@ function App() {
     <div>
       <button>hello</button>
       <div>
-        {sum.map((item, index) => (
+        {todo.map((todoItem, index) => (
           <div key={index}>
-            <p>{item}</p> {/* Or display specific properties of each item */}
+            <p>ID: {todoItem.id}</p>
+            <p>Title: {todoItem.title}</p>
+            <p>Description: {todoItem.description}</p>
+            <p>Completed: {todoItem.completed ? "Yes" : "No"}</p>
           </div>
         ))}
       </div>
