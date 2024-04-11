@@ -405,33 +405,94 @@
 
 
 
+// // useEffect
+// import { useState, useEffect } from "react";
+// import "./App.css";
+// import axios from "axios";
+
+// function App() {
+//   const [todos, setTodos] = useState([]);
+
+//   useEffect(() => {
+//     axios.get("https://sum-server.100xdevs.com/todos")
+//       .then((res) => {
+//         setTodos(res.data.todos); // Access response data directly
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching data:", error);
+//       });
+//   }, []);
+
+//   function Todo({ todo }) {
+//     return (
+//       <div>
+//         <h1>ID: {todo.id}</h1>
+//         <h2>Title: {todo.title}</h2>
+//         <p>Description: {todo.description}</p>
+//         <p>Completed: {todo.completed ? "Yes" : "No"}</p>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div>
+//       {todos.map((todo, index) => (
+//         <Todo key={index} todo={todo} />
+//       ))}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
 // useEffect
 import { useState, useEffect } from "react";
 import "./App.css";
+import axios from "axios";
 
-function App() {
-  const [todos, setTodos] = useState([]);
+function Todo({ id }) {
+  const [todo, setTodo] = useState({});
 
   useEffect(() => {
-    fetch("https://sum-server.100xdevs.com/todos")
-      .then(async (res) => {
-        const json = await res.json();
-        setTodos(json.todos);
+    axios.get(`https://sum-server.100xdevs.com/todos?id=${id}`)
+      .then((res) => {
+        const data = res.data.todos;
+        if (data.length > 0) {
+          setTodo(data[0]); // Set the first element from the fetched data
+        }
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, []);
-
-  function Todo({ data }) {
-    return <h1>{data}</h1>;
-  }
+  }, [id]); // Run the effect whenever id changes
 
   return (
     <div>
-      {todos.map((todo, index) => (
-        <Todo key={index} data={todo} />
-      ))}
+      <h1>ID: {todo.id}</h1>
+      <h2>Title: {todo.title}</h2>
+      <p>Description: {todo.description}</p>
+      <p>Completed: {todo.completed ? "Yes" : "No"}</p>
+    </div>
+  );
+}
+
+function App() {
+  const [selectedId, setSelectedId] = useState(1);
+
+  return (
+    <div>
+      <button onClick={() => setSelectedId(1)}>click 1</button>
+      <button onClick={() => setSelectedId(2)}>click 2</button>
+      <button onClick={() => setSelectedId(3)}>click 3</button>
+
+      <Todo id={selectedId} />
     </div>
   );
 }
