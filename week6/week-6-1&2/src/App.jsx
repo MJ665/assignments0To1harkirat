@@ -309,39 +309,129 @@
 
 
 
+// import "./App.css";
+// import React, { useEffect, useState } from "react";
+
+// function App() {
+//   const [todo, setTodo] = useState([]);
+
+//   useEffect(() => {
+//     setInterval(()=>{
+//       fetch("https://sum-server.100xdevs.com/todos")
+//       .then(async (res) => {
+//         const json = await res.json();
+//         setTodo(json.todos);
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching data:", error);
+//       });
+//     },1000)
+    
+//   }, []);
+
+//   return (
+//     <div>
+//       <button>hello</button>
+//       <div>
+//         {todo.map((todoItem, index) => (
+//           <div key={index}>
+//             <p>ID: {todoItem.id}</p>
+//             <p>Title: {todoItem.title}</p>
+//             <p>Description: {todoItem.description}</p>
+//             <p>Completed: {todoItem.completed ? "Yes" : "No"}</p>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// side effect 
+// in react the concept of side offects encompases any operation that reach outside the functional scope of a react component these operation can affect other copmponents interact with the browser or perform asynchronous data fetching
+// example 
+// setTimeout
+// fetch 
+//  setInterval
+//  document.getElementById("")
+
+// hooks are a feature introduced in react 16.8 that allow you t9o use state and other react features without writing a class
+// they enable functional components to have access to stateful logic & lifecydcle features which were previously only possible in class components that his led to a more concise & readable way of writing components in react
+// useState useEffect useCallback useMemo userRef useContext
+
+
+
+
+// useState
+// import { useEffect, useState } from "react"
+// import "./App.css"
+// function App (){
+//   const [count , setCount] = useState(0)
+//   return (
+//     <div>
+//       <button onClick={ function(){setCount (count+1)}}> click me {count }</button>
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+// useEffect
+import { useState, useEffect } from "react";
 import "./App.css";
-import React, { useEffect, useState } from "react";
 
 function App() {
-  const [todo, setTodo] = useState([]);
+  const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    setInterval(()=>{
-      fetch("https://sum-server.100xdevs.com/todos")
+    fetch("https://sum-server.100xdevs.com/todos")
       .then(async (res) => {
         const json = await res.json();
-        setTodo(json.todos);
+        setTodos(json.todos);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-    },1000)
-    
   }, []);
+
+  function Todo({ data }) {
+    return <h1>{data}</h1>;
+  }
 
   return (
     <div>
-      <button>hello</button>
-      <div>
-        {todo.map((todoItem, index) => (
-          <div key={index}>
-            <p>ID: {todoItem.id}</p>
-            <p>Title: {todoItem.title}</p>
-            <p>Description: {todoItem.description}</p>
-            <p>Completed: {todoItem.completed ? "Yes" : "No"}</p>
-          </div>
-        ))}
-      </div>
+      {todos.map((todo, index) => (
+        <Todo key={index} data={todo} />
+      ))}
     </div>
   );
 }
