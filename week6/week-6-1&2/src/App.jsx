@@ -452,49 +452,198 @@
 
 
 
-// useEffect
-import { useState, useEffect } from "react";
+// // useEffect
+// import { useState, useEffect } from "react";
+// import "./App.css";
+// import axios from "axios";
+
+// function Todo({ id }) {
+//   const [todo, setTodo] = useState({});
+
+//   useEffect(() => {
+//     axios.get(`https://sum-server.100xdevs.com/todos?id=${id}`)
+//       .then((res) => {
+//         const data = res.data.todos;
+//         if (data.length > 0) {
+//           setTodo(data[0]); // Set the first element from the fetched data
+//         }
+//       })
+//       .catch((error) => {
+//         console.error("Error fetching data:", error);
+//       });
+//   }, [id]); // Run the effect whenever id changes
+
+//   return (
+//     <div>
+//       <h1>ID: {todo.id}</h1>
+//       <h2>Title: {todo.title}</h2>
+//       <p>Description: {todo.description}</p>
+//       <p>Completed: {todo.completed ? "Yes" : "No"}</p>
+//     </div>
+//   );
+// }
+
+// function App() {
+//   const [selectedId, setSelectedId] = useState(1);
+
+//   return (
+//     <div>
+//       <button onClick={() => setSelectedId(1)}>click 1</button>
+//       <button onClick={() => setSelectedId(2)}>click 2</button>
+//       <button onClick={() => setSelectedId(3)}>click 3</button>
+
+//       <Todo id={selectedId} />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // useMemo
+// // this is a bad solution
+// // beacouse clicking on the button but not changing the value in text box still the expensive for loop operaion is getting called which is leading to bad solution
+// import { useState, useMemo } from "react";
+// import "./App.css";
+
+
+
+// function App() {
+// const [count, setCount ]=useState(0)
+// const [inputValue,setInputValue] = useState("")
+// let counting = 0
+// for (let i = 0;i<=inputValue ; i++){
+//   counting = counting +i
+// }
+//   return (
+//     <div>
+
+// <input type="text" name="textBox" id="id1" onChange={(e)=>{setInputValue(e.target.value)}} />
+// <br />
+// sum from 1 to {inputValue } is {counting}
+//  <br />
+
+// <button onClick = {()=>{setCount(count + 1)}}>click me {count }</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+// // useMemo
+// // useEffect using solution
+// // this is good solution but still whenever the typing occurs then its causing the bad solution
+// import { useState,useEffect,  useMemo } from "react";
+// import "./App.css";
+
+
+
+// function App() {
+// const [count, setCount ]=useState(0)
+// const [inputValue,setInputValue] = useState("")
+// const [finalInputValue,setFinalInputValue] = useState("")
+// useEffect(()=>{
+//   let counting = 0
+//   for (let i = 0;i<=inputValue ; i++){
+//     counting = counting +i
+//   }setFinalInputValue(counting)
+// },[inputValue])
+
+//   return (
+//     <div>
+
+// <input type="text" name="textBox" id="id1" onChange={(e)=>{setInputValue(e.target.value)}} />
+// <br />
+// sum from 1 to {inputValue } is {finalInputValue}
+//  <br />
+
+// <button onClick = {()=>{setCount(count + 1)}}>click me {count }</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useMemo
+// usememo
+import { useState, useMemo } from "react";
 import "./App.css";
-import axios from "axios";
 
-function Todo({ id }) {
-  const [todo, setTodo] = useState({});
-
-  useEffect(() => {
-    axios.get(`https://sum-server.100xdevs.com/todos?id=${id}`)
-      .then((res) => {
-        const data = res.data.todos;
-        if (data.length > 0) {
-          setTodo(data[0]); // Set the first element from the fetched data
-        }
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
-  }, [id]); // Run the effect whenever id changes
-
-  return (
-    <div>
-      <h1>ID: {todo.id}</h1>
-      <h2>Title: {todo.title}</h2>
-      <p>Description: {todo.description}</p>
-      <p>Completed: {todo.completed ? "Yes" : "No"}</p>
-    </div>
-  );
-}
 
 function App() {
-  const [selectedId, setSelectedId] = useState(1);
+const [count, setCount ]=useState(0)
+const [inputValue,setInputValue] = useState("")
+
+let count111 = useMemo(()=>{
+  let counting = 0
+  for (let i = 0;i<=inputValue ; i++){
+    counting = counting +i
+  }return counting
+},[inputValue])
 
   return (
     <div>
-      <button onClick={() => setSelectedId(1)}>click 1</button>
-      <button onClick={() => setSelectedId(2)}>click 2</button>
-      <button onClick={() => setSelectedId(3)}>click 3</button>
 
-      <Todo id={selectedId} />
+<input type="text" name="textBox" id="id1" onChange={(e)=>{setInputValue(e.target.value)}} />
+<br />
+sum from 1 to {inputValue } is {count111}
+ <br />
+
+<button onClick = {()=>{setCount(count + 1)}}>click me {count }</button>
     </div>
   );
 }
 
 export default App;
+
+
+
