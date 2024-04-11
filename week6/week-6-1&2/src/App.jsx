@@ -726,33 +726,72 @@
 
 
 
-// useCallback
-import { memo, useCallback, useState } from "react";
+// // useCallback
+// import { memo, useCallback, useState } from "react";
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   const  inputFunction = useCallback(()=> {
+//     console.log("child clicked")
+//   },[])
+
+//   return <div>
+//     <ButtonComponent inputFunction = {inputFunction}/>
+//     <button onClick={() => {
+//       setCount(count + 1);
+//     }}>Click me {count}</button>
+//   </div>
+// }
+
+// const ButtonComponent = memo((inputFunction) => {
+//   console.log("child  render")
+
+//   return <div>
+//     <button >Button clicked</button>
+//   </div>
+// })
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useRef
+
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const divRef = useRef();
 
-  const  inputFunction = useCallback(()=> {
-    console.log("child clicked")
-  },[])
+  useEffect(() => {
+    setTimeout(() => {
+      divRef.current.innerHTML = "10"
+    }, 5000);
+  }, [])
 
-  return <div>
-    <ButtonComponent inputFunction = {inputFunction}/>
-    <button onClick={() => {
-      setCount(count + 1);
-    }}>Click me {count}</button>
-  </div>
+  const incomeTax = 20000;
+
+  return (
+    <div>
+        hi there, your income tax returns are <div ref={divRef}>{incomeTax}</div>
+    </div>
+  )
 }
 
-const ButtonComponent = memo((inputFunction) => {
-  console.log("child  render")
-
-  return <div>
-    <button >Button clicked</button>
-  </div>
-})
-
-export default App;
-
-
+export default App
 
