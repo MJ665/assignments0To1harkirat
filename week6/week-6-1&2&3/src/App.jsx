@@ -773,7 +773,7 @@
 
 // useRef
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import {  useEffect, useRef } from 'react'
 
 function App() {
   const divRef = useRef();
