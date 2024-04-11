@@ -316,7 +316,8 @@ function App() {
   const [todo, setTodo] = useState([]);
 
   useEffect(() => {
-    fetch("https://sum-server.100xdevs.com/todos")
+    setInterval(()=>{
+      fetch("https://sum-server.100xdevs.com/todos")
       .then(async (res) => {
         const json = await res.json();
         setTodo(json.todos);
@@ -324,6 +325,8 @@ function App() {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
+    },1000)
+    
   }, []);
 
   return (
