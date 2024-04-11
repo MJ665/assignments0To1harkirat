@@ -613,35 +613,144 @@
 
 
 
-// useMemo
-// usememo
-import { useState, useMemo } from "react";
-import "./App.css";
+// // useMemo
+// // usememo
+// import { useState, useMemo } from "react";
+// import "./App.css";
 
+
+// function App() {
+// const [count, setCount ]=useState(0)
+// const [inputValue,setInputValue] = useState("")
+
+// let count111 = useMemo(()=>{
+//   console.log("use memo got called")
+//   let counting = 0
+//   for (let i = 0;i<=inputValue ; i++){
+//     counting = counting +i
+//   }return counting
+// },[inputValue])
+
+//   return (
+//     <div>
+
+// <input type="text" name="textBox" id="id1" onChange={(e)=>{setInputValue(e.target.value)}} />
+// <br />
+// sum from 1 to {inputValue } is {count111}
+//  <br />
+
+// <button onClick = {()=>{setCount(count + 1)}}>click me {count }</button>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // useCallback
+// import { memo, useCallback, useState } from "react";
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+//   const  inputFunction = useCallback(()=> {
+//     console.log("child clicked")
+//   },[])
+
+//   return <div>
+//     <ButtonComponent inputFunction = {inputFunction}/>
+//     <button onClick={() => {
+//       setCount(count + 1);
+//     }}>Click me {count}</button>
+//   </div>
+// }
+
+// const ButtonComponent = memo((inputFunction) => {
+//   console.log("child  render")
+
+//   return <div>
+//     <button >Button clicked</button>
+//   </div>
+// })
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CustomHooks
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useCallback
+import { memo, useCallback, useState } from "react";
 
 function App() {
-const [count, setCount ]=useState(0)
-const [inputValue,setInputValue] = useState("")
+  const [count, setCount] = useState(0)
 
-let count111 = useMemo(()=>{
-  let counting = 0
-  for (let i = 0;i<=inputValue ; i++){
-    counting = counting +i
-  }return counting
-},[inputValue])
+  const  inputFunction = useCallback(()=> {
+    console.log("child clicked")
+  },[])
 
-  return (
-    <div>
-
-<input type="text" name="textBox" id="id1" onChange={(e)=>{setInputValue(e.target.value)}} />
-<br />
-sum from 1 to {inputValue } is {count111}
- <br />
-
-<button onClick = {()=>{setCount(count + 1)}}>click me {count }</button>
-    </div>
-  );
+  return <div>
+    <ButtonComponent inputFunction = {inputFunction}/>
+    <button onClick={() => {
+      setCount(count + 1);
+    }}>Click me {count}</button>
+  </div>
 }
+
+const ButtonComponent = memo((inputFunction) => {
+  console.log("child  render")
+
+  return <div>
+    <button >Button clicked</button>
+  </div>
+})
 
 export default App;
 
