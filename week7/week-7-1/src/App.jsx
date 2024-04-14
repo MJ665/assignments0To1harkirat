@@ -219,61 +219,65 @@
 
 
 
-// Context API
-// it helps to teleport data to the component without drilling the data
-// when we are using the contexxt api thei it you are pushing youyr statemanagement ourside the core react components
-// how context api is different from state management tools like redux and recoil
-// context api dose not have optimaization
-// while state management tool like redux and recoil is highly performat beacouse it have 100 different optimization
-// for that we have to create a new file to store the context 
-// here we have created the new file context.jsx
- // we have to wrap anyone that want to use it
+// // Context API
+// // it helps to teleport data to the component without drilling the data
+// // when we are using the contexxt api thei it you are pushing youyr statemanagement ourside the core react components
+// // how context api is different from state management tools like redux and recoil
+// // context api dose not have optimaization
+// // while state management tool like redux and recoil is highly performat beacouse it have 100 different optimization
+// // for that we have to create a new file to store the context 
+// // here we have created the new file context.jsx
+//  // we have to wrap anyone that want to use it
 
-import { useContext, useState } from "react"
-import "./App.css"
-import { countContext } from "./context"
-function App ( ){
-const [count, setCount]=useState (0)
+// import { useContext, useState } from "react"
+// import "./App.css"
+// import { countContext } from "./context"
+// function App ( ){
+// const [count, setCount]=useState (0)
 
-  return (
-<div>
-  <countContext.Provider value={{count,setCount}}>
+//   return (
+// <div>
+//   <countContext.Provider value={{count,setCount}}>
 
-  <Count />
-  </countContext.Provider>
-</div>
-  )
-}
+//   <Count />
+//   </countContext.Provider>
+// </div>
+//   )
+// }
 
-function Count (){
-  return <div>
-<CountRenderer/>
-<Button />
-  </div>
-}
-function CountRenderer (){
-  const {count} = useContext (countContext)
-  return <div>
-    {count}
+// function Count (){
+//   return <div>
+// <CountRenderer/>
+// <Button />
+//   </div>
+// }
+// function CountRenderer (){
+//   const {count} = useContext (countContext)
+//   return <div>
+//     {count}
 
-  </div>
-}
-
-
-function Button (){
-  const {count,setCount} = useContext (countContext)
-
-return (
-  <div>
-    <button onClick = {()=>{
-      setCount(count +1)
-    }}>increase</button>
-    <button onClick = {()=>{
-    setCount(count -1)
-    }}>Decrease</button>
-  </div>
-)
-}
+//   </div>
+// }
 
 
-export default App
+// function Button (){
+//   const {count,setCount} = useContext (countContext)
+
+// return (
+//   <div>
+//     <button onClick = {()=>{
+//       setCount(count +1)
+//     }}>increase</button>
+//     <button onClick = {()=>{
+//     setCount(count -1)
+//     }}>Decrease</button>
+//   </div>
+// )
+// }
+
+
+// export default App
+
+
+
+
