@@ -455,7 +455,9 @@
 // hence the companies open source only the component and do not make public how the state is changing beacouse it is related to backend calls
 // they ndo not make open state logic
 
+// some state management tools are zustand redux and recoil
 
+// we will be learning the recoil
 
 
 
