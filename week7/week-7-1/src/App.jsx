@@ -281,3 +281,103 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Starting week 7 / week 7-2
+
+
+import { useContext, useState } from "react"
+import "./App.css"
+import { countContext } from "./context"
+function App ( ){
+const [count, setCount]=useState (0)
+
+  return (
+<div>
+  <countContext.Provider value={{count,setCount}}>
+
+  <Count />
+  </countContext.Provider>
+</div>
+  )
+}
+
+function Count (){
+  return <div>
+<CountRenderer/>
+<Button />
+  </div>
+}
+function CountRenderer (){
+  const {count} = useContext (countContext)
+  return <div>
+    {count}
+
+  </div>
+}
+
+
+function Button (){
+  const {count,setCount} = useContext (countContext)
+
+return (
+  <div>
+    <button onClick = {()=>{
+      setCount(count +1)
+    }}>increase</button>
+    <button onClick = {()=>{
+    setCount(count -1)
+    }}>Decrease</button>
+  </div>
+)
+}
+
+
+export default App
+
