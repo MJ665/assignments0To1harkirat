@@ -331,6 +331,133 @@
 
 // Starting week 7 / week 7-2
 
+// why do you use context api =>for more performance =>no
+// why do you use context api =>to make syntax more easier & prop drilling=>yes
+
+// in this code we can see that we decelerated count and set count in grandfather component and accessed in 2 children compoenet
+// when we done the console log and do increment and decrement 
+// we saw that the father component is also rerendering again when the grnadchildren are accessed
+//
+// why do you use state management tool=>for less number of re renders 
+
+// import { useContext, useState } from "react"
+// import "./App.css"
+// import { countContext } from "./context"
+// function App ( ){
+// const [count, setCount]=useState (0)
+
+//   return (
+// <div>
+//   <countContext.Provider value={{count,setCount}}>
+
+//   <Count />
+//   </countContext.Provider>
+// </div>
+//   )
+// }
+
+// function Count (){
+//     console.log("Count Component rerender")
+//     return <div>
+// <CountRenderer/>
+// <Button />
+//   </div>
+// }
+// function CountRenderer (){
+//   console.log("Countrenderer Component rerender")
+//   const {count} = useContext (countContext)
+//   return <div>
+//     {count}
+
+//   </div>
+// }
+
+
+// function Button (){
+//   console.log("button Component rerender")
+//   const {count,setCount} = useContext (countContext)
+
+// return (
+//   <div>
+//     <button onClick = {()=>{
+//       setCount(count +1)
+//     }}>increase</button>
+//     <button onClick = {()=>{
+//     setCount(count -1)
+//     }}>Decrease</button>
+//   </div>
+// )
+// }
+
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// hence the companies open source only the component and do not make public how the state is changing beacouse it is related to backend calls
+// they ndo not make open state logic
+
+
+
+
 
 import { useContext, useState } from "react"
 import "./App.css"
@@ -349,12 +476,14 @@ const [count, setCount]=useState (0)
 }
 
 function Count (){
-  return <div>
+    console.log("Count Component rerender")
+    return <div>
 <CountRenderer/>
 <Button />
   </div>
 }
 function CountRenderer (){
+  console.log("Countrenderer Component rerender")
   const {count} = useContext (countContext)
   return <div>
     {count}
@@ -364,6 +493,7 @@ function CountRenderer (){
 
 
 function Button (){
+  console.log("button Component rerender")
   const {count,setCount} = useContext (countContext)
 
 return (
@@ -380,4 +510,3 @@ return (
 
 
 export default App
-
