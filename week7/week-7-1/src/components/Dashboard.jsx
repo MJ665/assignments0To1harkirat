@@ -1,7 +1,8 @@
-export default function Dashboard(){
-    return(
-        <div>
-            dashboard
-        </div>
-    )
-}
+export function Dashboard() {
+    return (
+      <div>
+        Dashboard
+      </div>
+    );
+  }
+  
