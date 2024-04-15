@@ -461,18 +461,19 @@
 
 
 
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import "./App.css"
 import { countContext } from "./context"
+import {useRecoilState} from "recoil"
+import { countAtom } from "./store/atoms/countAtom"
 function App ( ){
-const [count, setCount]=useState (0)
+
 
   return (
 <div>
-  <countContext.Provider value={{count,setCount}}>
 
   <Count />
-  </countContext.Provider>
+
 </div>
   )
 }
@@ -486,7 +487,7 @@ function Count (){
 }
 function CountRenderer (){
   console.log("Countrenderer Component rerender")
-  const {count} = useContext (countContext)
+  const {count} = useRecoilState (countContext)
   return <div>
     {count}
 
