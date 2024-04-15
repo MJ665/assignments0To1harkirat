@@ -460,11 +460,18 @@
 // we will be learning the recoil
 
 
+// the recoil is some where like this
+// consider example 
+// [value,setValue]=useState
+// [value,setValue]=useRecoilState
+// value=useRecoilValue
+// setValue=useSetRecoilState
+
 
 import { useContext } from "react"
 import "./App.css"
 import { countContext } from "./context"
-import {useRecoilState} from "recoil"
+import {RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState} from "recoil"
 import { countAtom } from "./store/atoms/countAtom"
 function App ( ){
 
@@ -472,7 +479,10 @@ function App ( ){
   return (
 <div>
 
+<RecoilRoot>
+
   <Count />
+</RecoilRoot>
 
 </div>
   )
@@ -481,13 +491,14 @@ function App ( ){
 function Count (){
     console.log("Count Component rerender")
     return <div>
+
 <CountRenderer/>
 <Button />
   </div>
 }
 function CountRenderer (){
   console.log("Countrenderer Component rerender")
-  const {count} = useRecoilState (countContext)
+  const count= useRecoilValue (countAtom)
   return <div>
     {count}
 
@@ -497,15 +508,26 @@ function CountRenderer (){
 
 function Button (){
   console.log("button Component rerender")
-  const {count,setCount} = useContext (countContext)
-
+  // const [count,setCount]= useRecoilState (countAtom)
+  const setCount = useSetRecoilState (countAtom)
+/**
+ * setCount (count +1)
+ * setCount (c =>c+1). ----->
+ * setCount (function (c)=>{return c+1}) ----> in both of this we dont have to import count it will take the current value of the as the coung and put it into c
+ * why we should do so 
+ * beacouse the buttons components are also re rendering when we are clicking it and it is not optimal  
+ * hance we will use this format
+ * setCount (c =>c+1). 
+ */
 return (
   <div>
     <button onClick = {()=>{
-      setCount(count +1)
+      // setCount(count +1)
+      setCount(c=> c+1)
     }}>increase</button>
     <button onClick = {()=>{
-    setCount(count -1)
+      // setCount(count -1)
+      setCount(function (c){return c-1})
     }}>Decrease</button>
   </div>
 )
