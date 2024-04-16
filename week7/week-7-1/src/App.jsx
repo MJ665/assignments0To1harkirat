@@ -683,85 +683,143 @@
 
 
 
-// FilterTodos.jsx
-import React, { useState } from "react";
-import { useRecoilState ,useSetRecoilState,useRecoilValue} from "recoil";
-import { filterAtom } from "./store/atoms/countAtom";
+// // FilterTodos.jsx
+// import React, { useState } from "react";
+// import { useRecoilState ,useSetRecoilState,useRecoilValue} from "recoil";
+// import { filterAtom } from "./store/atoms/countAtom";
 
 
 
-import {  } from "recoil";
-import { titleAtom, descriptionAtom, todosAtom } from "./store/atoms/countAtom";
+// import {  } from "recoil";
+// import { titleAtom, descriptionAtom, todosAtom } from "./store/atoms/countAtom";
 
-// App.jsx
-import { RecoilRoot } from "recoil";
-function App() {
-  return (
-    <div>
-      <RecoilRoot>
-        <InputForm />
-        <FilterTodos />
-        <DisplayTodos />
-      </RecoilRoot>
-    </div>
-  );
-}
+// // App.jsx
+// import { RecoilRoot } from "recoil";
+// function App() {
+//   return (
+//     <div>
+//       <RecoilRoot>
+//         <InputForm />
+//         <FilterTodos />
+//         <DisplayTodos />
+//       </RecoilRoot>
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
-function InputForm() {
-  const [title, setTitle] = useRecoilState(titleAtom);
-  const [description, setDescription] = useRecoilState(descriptionAtom);
-  const setTodosAtom = useSetRecoilState(todosAtom);
+// function InputForm() {
+//   const [title, setTitle] = useRecoilState(titleAtom);
+//   const [description, setDescription] = useRecoilState(descriptionAtom);
+//   const setTodosAtom = useSetRecoilState(todosAtom);
 
-  const handleClick = () => {
-    setTodosAtom((oldTodos) => [
-      ...oldTodos,
-      { title: title, description: description }
-    ]);
-  };
+//   const handleClick = () => {
+//     setTodosAtom((oldTodos) => [
+//       ...oldTodos,
+//       { title: title, description: description }
+//     ]);
+//   };
 
-  return (
-    <div>
-      <input type="text" onChange={(e) => setTitle(e.target.value)} />
-      <input type="text" onChange={(e) => setDescription(e.target.value)} />
-      <button onClick={handleClick}>Click To Submit Form</button>
-    </div>
-  );
-}
-
-
-import { todosSelector } from "./store/atoms/countAtom";
-
-function DisplayTodos() {
-  const todos = useRecoilValue(todosSelector);
-
-  return (
-    <div>
-      {todos.map((element, index) => (
-        <div key={index}>
-          <h1>{element.title}</h1>
-          <h2>{element.description}</h2>
-        </div>
-      ))}
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <input type="text" onChange={(e) => setTitle(e.target.value)} />
+//       <input type="text" onChange={(e) => setDescription(e.target.value)} />
+//       <button onClick={handleClick}>Click To Submit Form</button>
+//     </div>
+//   );
+// }
 
 
+// import { todosSelector } from "./store/atoms/countAtom";
+
+// function DisplayTodos() {
+//   const todos = useRecoilValue(todosSelector);
+
+//   return (
+//     <div>
+//       {todos.map((element, index) => (
+//         <div key={index}>
+//           <h1>{element.title}</h1>
+//           <h2>{element.description}</h2>
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
 
 
-function FilterTodos() {
-  const [filter, setFilter] = useRecoilState(filterAtom);
 
-  const handleChange = (e) => {
-    setFilter(e.target.value);
-  };
 
-  return (
-    <div>
-      <input type="text" placeholder="Filter by title" onChange={handleChange} />
-    </div>
-  );
-}
+// function FilterTodos() {
+//   const [filter, setFilter] = useRecoilState(filterAtom);
+
+//   const handleChange = (e) => {
+//     setFilter(e.target.value);
+//   };
+
+//   return (
+//     <div>
+//       <input type="text" placeholder="Filter by title" onChange={handleChange} />
+//     </div>
+//   );
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Week 7 / Week - 7 - 3
+
+
+
+
+
+
 
