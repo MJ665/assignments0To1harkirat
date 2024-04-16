@@ -452,86 +452,316 @@
 
 
 
-// hence the companies open source only the component and do not make public how the state is changing beacouse it is related to backend calls
-// they ndo not make open state logic
+// // hence the companies open source only the component and do not make public how the state is changing beacouse it is related to backend calls
+// // they ndo not make open state logic
 
-// some state management tools are zustand redux and recoil
+// // some state management tools are zustand redux and recoil
 
-// we will be learning the recoil
-
-
-// the recoil is some where like this
-// consider example 
-// [value,setValue]=useState
-// [value,setValue]=useRecoilState
-// value=useRecoilValue
-// setValue=useSetRecoilState
+// // we will be learning the recoil
 
 
-import { useContext } from "react"
-import "./App.css"
-import { countContext } from "./context"
-import {RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState} from "recoil"
-import { countAtom } from "./store/atoms/countAtom"
-function App ( ){
+// // the recoil is some where like this
+// // consider example 
+// // [value,setValue]=useState
+// // [value,setValue]=useRecoilState
+// // value=useRecoilValue
+// // setValue=useSetRecoilState
 
+
+// import { useContext, useMemo } from "react"
+// import "./App.css"
+// import { countContext } from "./context"
+// import {RecoilRoot, useRecoilState, useRecoilValue, useSetRecoilState} from "recoil"
+// import { countAtom, evenSelector} from "./store/atoms/countAtom"
+// // import { countAtom,selectorAtom } from "./store/atoms/countAtom"
+// function App ( ){
+
+
+//   return (
+// <div>
+
+// <RecoilRoot>
+
+//   <Count />
+  
+// </RecoilRoot>
+
+// </div>
+//   )
+// }
+
+// function Count (){
+//     console.log("Count Component rerender")
+//     return <div>
+
+// <CountRenderer/>
+// <Button />
+// <Selector/>
+//   </div>
+// }
+// function CountRenderer (){
+//   console.log("Countrenderer Component rerender")
+//   const count= useRecoilValue (countAtom)
+//   return <div>
+//     {count}
+
+//   </div>
+// }
+
+
+// function Button (){
+//   console.log("button Component rerender")
+//   // const [count,setCount]= useRecoilState (countAtom)
+//   const setCount = useSetRecoilState (countAtom)
+// /**
+//  * setCount (count +1)
+//  * setCount (c =>c+1). ----->
+//  * setCount (function (c)=>{return c+1}) ----> in both of this we dont have to import count it will take the current value of the as the coung and put it into c
+//  * why we should do so 
+//  * beacouse the buttons components are also re rendering when we are clicking it and it is not optimal  
+//  * hance we will use this format
+//  * setCount (c =>c+1). 
+//  */
+// return (
+//   <div>
+//     <button onClick = {()=>{
+//       // setCount(count +1)
+//       setCount(c=> c+1)
+//     }}>increase</button>
+//     <button onClick = {()=>{
+//       // setCount(count -1)
+//       setCount(function (c){return c-1})
+//     }}>Decrease</button>
+//   </div>
+// )
+// }
+
+
+
+// // Uggly way to solve
+
+// // function Selector(){
+// // console.log("the selector component has re rendered")
+// // const [selector,setSelector] = useRecoilState(selectorAtom)
+// // const count = useRecoilValue(countAtom)
+
+// // if(count %2 == 0){setSelector("Even")}else{setSelector("ODD")}
+// // return ( 
+// //   <p>THe number is {selector}</p>
+// // )
+// // }
+
+
+// // Better way to solve with use memo way to solve
+
+// // function Selector(){
+// // console.log("the selector component has re rendered")
+
+// // const count = useRecoilValue(countAtom)
+// // const isEven = useMemo(()=>{
+// //   return count %2 == 0
+// // }, [count ])
+
+// // return ( 
+// //   <p>THe number is {isEven ? "it is even ":null}</p>
+// // )
+// // }
+
+// // in the same way as useMemo we can create selectors
+// function Selector(){
+// console.log("the selector component has re rendered")
+
+// const evenSelector= useRecoilValue(evenSelector)
+
+
+// return ( 
+//   <p>THe number is {evenSelector ? "it is even ":null}</p>
+// )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// FilterTodos.jsx
+import React, { useState } from "react";
+import { useRecoilState ,useSetRecoilState,useRecoilValue} from "recoil";
+import { filterAtom } from "./store/atoms/countAtom";
+
+
+
+import {  } from "recoil";
+import { titleAtom, descriptionAtom, todosAtom } from "./store/atoms/countAtom";
+
+// App.jsx
+import { RecoilRoot } from "recoil";
+function App() {
+  return (
+    <div>
+      <RecoilRoot>
+        <InputForm />
+        <FilterTodos />
+        <DisplayTodos />
+      </RecoilRoot>
+    </div>
+  );
+}
+
+export default App;
+
+function InputForm() {
+  const [title, setTitle] = useRecoilState(titleAtom);
+  const [description, setDescription] = useRecoilState(descriptionAtom);
+  const setTodosAtom = useSetRecoilState(todosAtom);
+
+  const handleClick = () => {
+    setTodosAtom((oldTodos) => [
+      ...oldTodos,
+      { title: title, description: description }
+    ]);
+  };
 
   return (
-<div>
-
-<RecoilRoot>
-
-  <Count />
-</RecoilRoot>
-
-</div>
-  )
-}
-
-function Count (){
-    console.log("Count Component rerender")
-    return <div>
-
-<CountRenderer/>
-<Button />
-  </div>
-}
-function CountRenderer (){
-  console.log("Countrenderer Component rerender")
-  const count= useRecoilValue (countAtom)
-  return <div>
-    {count}
-
-  </div>
+    <div>
+      <input type="text" onChange={(e) => setTitle(e.target.value)} />
+      <input type="text" onChange={(e) => setDescription(e.target.value)} />
+      <button onClick={handleClick}>Click To Submit Form</button>
+    </div>
+  );
 }
 
 
-function Button (){
-  console.log("button Component rerender")
-  // const [count,setCount]= useRecoilState (countAtom)
-  const setCount = useSetRecoilState (countAtom)
-/**
- * setCount (count +1)
- * setCount (c =>c+1). ----->
- * setCount (function (c)=>{return c+1}) ----> in both of this we dont have to import count it will take the current value of the as the coung and put it into c
- * why we should do so 
- * beacouse the buttons components are also re rendering when we are clicking it and it is not optimal  
- * hance we will use this format
- * setCount (c =>c+1). 
- */
-return (
-  <div>
-    <button onClick = {()=>{
-      // setCount(count +1)
-      setCount(c=> c+1)
-    }}>increase</button>
-    <button onClick = {()=>{
-      // setCount(count -1)
-      setCount(function (c){return c-1})
-    }}>Decrease</button>
-  </div>
-)
+import { todosSelector } from "./store/atoms/countAtom";
+
+function DisplayTodos() {
+  const todos = useRecoilValue(todosSelector);
+
+  return (
+    <div>
+      {todos.map((element, index) => (
+        <div key={index}>
+          <h1>{element.title}</h1>
+          <h2>{element.description}</h2>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 
-export default App
+
+
+function FilterTodos() {
+  const [filter, setFilter] = useRecoilState(filterAtom);
+
+  const handleChange = (e) => {
+    setFilter(e.target.value);
+  };
+
+  return (
+    <div>
+      <input type="text" placeholder="Filter by title" onChange={handleChange} />
+    </div>
+  );
+}
+
