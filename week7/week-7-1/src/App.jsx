@@ -822,5 +822,39 @@
 // Recoil Ofline Video
 
 
+import { RecoilRoot, useRecoilValue }from "recoil"
+import "./App.css"
+import { networkAtom ,jobsAtom,notificationsAtom,messagingAtom} from "./store/atoms/week-7-3-Atom"
+
+function App (){
+
+  return(
+    <RecoilRoot>
+
+<MainApp></MainApp>
+    </RecoilRoot>
+  )
+}
+function MainApp (){
+  const networkNotificationCount = useRecoilValue(networkAtom)
+  const jobsAtomCount = useRecoilValue(jobsAtom)
+  const notificationsAtomCount = useRecoilValue(notificationsAtom)
+  const messagingAtomCount = useRecoilValue(messagingAtom)
+  return(
+    <RecoilRoot>
+
+<>
+  <button>Home</button>
+  <button>My Network({networkNotificationCount >= 100 ? "99+":networkNotificationCount})</button>
+  <button>Jobs({jobsAtomCount})</button>
+  <button>Messaging({messagingAtomCount})</button>
+  <button>Notification({notificationsAtomCount})</button>
+  <button onClick = (()=>{
+    setMessagingAtomCount (messagingAtomCount + 1 )})> Me</button>
+
+    </RecoilRoot>
+  )
+}
 
 
+export default App
