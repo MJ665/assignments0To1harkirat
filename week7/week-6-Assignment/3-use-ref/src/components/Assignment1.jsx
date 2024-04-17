@@ -1,21 +1,24 @@
-import { useEffect } from "react";
+import React, { useState, useCallback } from 'react';
+import { useRef } from 'react';
 
-// Create a component with a text input field and a button. When the component mounts or the button is clicked, automatically focus the text input field using useRef.
+// Create a component that tracks and displays the number of times it has been rendered. 
 
-export function Assignment1() {
+export function Assignment2() {
+    const [count, setCount] = useState(0);
 
-    useEffect(() => {
+    const numberOfTimesReRendered = useRef(0);
 
-    }, []);
-
-    const handleButtonClick = () => {
-
+    const handleReRender = () => {
+        // Update state to force re-render
+        setCount(count + 1);
     };
+
+    numberOfTimesReRendered.current = numberOfTimesReRendered.current + 1;
 
     return (
         <div>
-            <input type="text" placeholder="Enter text here" />
-            <button onClick={handleButtonClick}>Focus Input</button>
+            <p>This component has rendered {numberOfTimesReRendered.current} times.</p>
+            <button onClick={handleReRender}>Force Re-render</button>
         </div>
     );
 };
