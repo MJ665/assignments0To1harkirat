@@ -7,11 +7,10 @@ import React, { useState, useCallback } from 'react';
 export function Assignment2() {
     const [inputText, setInputText] = useState('');
 
-    // Your code starts here
-    function showAlert() {
-
-    }
-    // Your code ends here
+    // Using useCallback to memoize the event handler function
+    const showAlert = useCallback(() => {
+        alert(inputText);
+    }, [inputText]);
 
     return (
         <div>
@@ -26,7 +25,7 @@ export function Assignment2() {
     );
 };
 
-function Alert({showAlert}) {
-    return <button onClick={showAlert}>Show Alert</button>
+// No changes needed in the Alert component
+function Alert({ showAlert }) {
+    return <button onClick={showAlert}>Show Alert</button>;
 }
-
