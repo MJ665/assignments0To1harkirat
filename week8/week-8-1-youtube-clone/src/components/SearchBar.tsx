@@ -1,7 +1,7 @@
 export default function SearchBar() {
     return (
       <div className="flex justify-end">
-        <div className="hidden sm:flex w-full md:w-96 border border-gray-600 rounded-3xl p-2 pl-4 text-sm">
+        <div className="max-sm:hidden block  w-full md:w-96 border border-gray-600 rounded-3xl p-2 pl-4 text-sm">
           <input
             id="default-search"
             className="w-full bg-slate-950 rounded-2xl border-none outline-none"
