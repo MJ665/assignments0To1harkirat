@@ -1,21 +1,28 @@
-export function VideoCard (){
-    return (
-        <div>
-
-            Hi from Video card html component
-            <img  src ="https://i.ytimg.com/vi/L8akCkfJj04/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAgsqJmg_Sw7hiGPHTN11AA6aFrOg"/>
-            <div className={"grid grid-cols-12 bg-red-500"}>
-                <div className={" col-span-2"}>
-            <img className={"rounded-full"} src ="https://i.ytimg.com/vi/L8akCkfJj04/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAgsqJmg_Sw7hiGPHTN11AA6aFrOg"/>
-            </div>
-            <div className={"col-span-10"}>
-                
-Jawan : chaleya (hindi)|
-Sharukh khan
-                </div>
-            </div>
-
+export function VideoCard(props:any) {
+  return (
+    <div>
+      Hi from Video card html component
+      <img className="border-2 rounded-xl " src={props.thumbnailImage } />
+      <div className={"grid grid-cols-12 "}>
+        <div className={" col-span-2"}>
+          <img
+            className={"pt-2  rounded-full w-20 h-20 "}
+            src={props.channelImage}
+          />
         </div>
-    )
-}
+        <div className={" pl-2 col-span-10"}>
+            <div>
 
+          {props.title}
+            </div>
+        <div className={"  col-span-11 text-gray-400 text-base"}>
+          {props.author}
+        </div>
+        <div className={" col-span-11 text-gray-400 text-base"}>
+          {props.views} | {props.timeStamp}
+        </div>
+        </div>d
+      </div>
+    </div>
+  );
+}
