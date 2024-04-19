@@ -1,7 +1,7 @@
 export function VideoCard(props:any) {
   return (
-    <div>
-      Hi from Video card html component
+    <div className="p-3">
+
       <img className="border-2 rounded-xl " src={props.thumbnailImage } />
       <div className={"grid grid-cols-12 "}>
         <div className={" col-span-2"}>
@@ -21,7 +21,7 @@ export function VideoCard(props:any) {
         <div className={" col-span-11 text-gray-400 text-base"}>
           {props.views} | {props.timeStamp}
         </div>
-        </div>d
+        </div>
       </div>
     </div>
   );
