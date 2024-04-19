@@ -13,7 +13,7 @@ function App() {
       <div style={{backgroundColor:"green"}}>hi there</div>
       <div style={{backgroundColor:"blue"}}>hi there</div>
       <div style={{backgroundColor:"yellow"}}>hi there</div>
-      <div className='border bg-black-600'>aihdjfoaidsf</div>
+      <div className='border pt-2'>aihdjfoaidsf</div>
      </div>
     </>
   )
