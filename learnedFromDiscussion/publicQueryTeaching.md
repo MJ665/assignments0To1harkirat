@@ -44,6 +44,7 @@ shopify and wordpress are currently 30 % of the internet there is a lot on money
 hired in dukaan by making this front end and dummy backend 
 
 the dukaan had arranged open twitter challange and whoever makes the frontend will get hired
+[hired in dukan by makin this front end and backend ](https://x.com/subhashchy/status/1744308069751025894)
 <br />
 
 ![hired in dukan by makin this front end and backend ](./dukaanHiredFrontend.png)
