@@ -125,3 +125,46 @@ https://tailwindcomponents.com/cheatsheet/
 
 <br />
 <br />
+
+storybook is an thing which help to add creativity in the project where othe ui us designers can come and can intereact
+
+<br />
+<br />
+
+gsap library is used for animations in tailwind
+
+
+<br />
+<br />
+
+https://medium.com/@tondawalkar.omkar/primitive-vs-non-primitive-dependencies-in-useeffect-309a38f7919d
+
+<br />
+<br />
+
+
+authify for developers
+
+listed on the product hunt came on top 20
+
+<br />
+<br />
+
+auth 0
+
+clerk
+
+kafka
+
+aggregation pipeline
+
+<br />
+<br />
+
+
+shad cn
+
+remix
+
+rust
+
