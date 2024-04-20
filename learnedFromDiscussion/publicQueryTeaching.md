@@ -1,3 +1,68 @@
+
+<br />
+
+hello[dukan cto interview by sing in usa](https://youtu.be/jZxYZZ151To?si=DBw-gpDelx3q8kwT)
+<br />
+
+hello[dukaan going bare metal](https://youtu.be/vFxQyZX84Ro?si=1utgQIXhUd2pDd1aa)
+<br />
+<br />
+rapid mq , Kubernetes lens , rds , dynamo db , ngnix , fluentbit , elastic , cicd , cncf .  efk stack , elastic search cluster, apache software to store auth logs , anylitics software, yekger siblos for tracing if api is slow you can track up to the database query  ,  tumara koi bhi tech stack kubernetes pe hona chahiye self hostable hona chahiye mai paisa nahi dega -> rule & thinking of cto of dukan while while going to new tech stack , cdn is used for js images etc   they wrote algorithm for image transformation by self ,   they use  bunny ,archamive etc before some time if cloudfare works better then they use cloudflare, whatsappi  is one of the cdn to store the images beacouse google cloud is very expensive so they take backup with whatsappi and store in hard drive , 
+
+cloudflare bhi sql lite data base use karta hai 
+
+
+asli engineering wale ka project  ->system call hii hamesha koi bhi database ya kafka bhi use karke chiz fast karta hai  to uusne dug db ,postgres , geno db by paypal, padha  500 page ka unix ka system call ka book padha aur bana raha hai
+<br />
+<br />
+<br />
+<br />
+
+https://devblogs.microsoft.com/bharry/scaling-git-and-some-back-story/
+<br />
+<br />
+
+
+
+
+https://graphite.dev/blog/why-facebook-doesnt-use-git
+
+<br />
+<br />
+
+
+
+
+https://engineering.fb.com/2014/01/07/core-infra/scaling-mercurial-at-facebook/
+
+
+
+<br />
+<br />
+
+https://arstechnica.com/information-technology/2017/02/microsoft-hosts-the-windows-source-in-a-monstrous-300gb-git-repository/
+
+
+
+
+
+
+<br />
+<br />
+
+https://stacking.dev/
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 can you discuss react query while data fetching and data caching instead of useEffect, shed some light on that
 
@@ -51,3 +116,12 @@ the dukaan had arranged open twitter challange and whoever makes the frontend wi
 
 ![hired in dukan by makin this front end and backend ](./dukaanHiredTwitter.png)
 
+
+<br />
+<br />
+
+https://tailwindcomponents.com/cheatsheet/
+
+
+<br />
+<br />
