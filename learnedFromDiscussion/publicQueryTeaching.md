@@ -168,3 +168,38 @@ remix
 
 rust
 
+<br />
+<br />
+
+edge beased jam stack
+
+edge based computing
+
+better cdn
+
+edge basesd low latency system
+
+building edge coumputing stack
+
+maggi delivery network
+
+cape theorem
+
+distributed systems
+
+cloude flare ased key value store
+
+cloudflares AP
+
+c consistency a avaiblity p partitioni problem
+
+algolia search
+
+cloud flare key value store
+
+aws lamda function
+
+firecracker 
+
+microvm
+
