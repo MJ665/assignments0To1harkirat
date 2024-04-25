@@ -1,7 +1,7 @@
 import RevenueCard from "./components/RevenueCard"
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
+import SidebarComponent from "./components/SidebarComponent"
 import './App.css'
 
 function App() {
@@ -18,15 +18,15 @@ function App() {
      </div> */}
 
 
-
-<div className="grid grid-cols-4">
+<SidebarComponent></SidebarComponent>
+{/* <div className="grid grid-cols-4">
       <RevenueCard 
       title ="hello"
       showWarning = {true}
   orderCount = {300}
   amount = {50000}
   ></RevenueCard>
-</div>
+</div> */}
     </>
   )
 }
