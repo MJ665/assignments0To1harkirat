@@ -5,11 +5,12 @@ const router = Router();
 
 
 
-const signInRouter = require("./signIn.js");
-router.use("/signIn", signInRouter);
+const userRouter = require("./userRoute/index.js");
+router.use("/user", userRouter);
 
-const signUpRouter = require("./signUp.js");
-router.use("/signUp",signUpRouter);
+const accountRoute = require("./accountRoute/index.js");
+router.use("/account", accountRoute);
+
 
 
 module.exports = router;
