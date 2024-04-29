@@ -1,0 +1,9 @@
+you have to make a .env file and you have to add the following most essential keys in it
+
+```env
+
+MONGO_URL= ...
+PORT = ...
+JWT_SECRET= ...
+
+```
