@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const router = Router();
-const { signUpMiddleware } = require("../zodMiddleware.js");
+const { signUpMiddleware } = require("../zodMiddleware");
 
 router.post("/", signUpMiddleware, async (req, res) => {
   try {

@@ -14,11 +14,8 @@ app.use(express.json())
 app.use(cors())
 // app.use(cors({origin: "http:localhost:5173"}))
 
-const signInRouter = require("./router/signIn.js");
-app.use("/signIn", signInRouter);
-
-const signUpRouter = require("./router/signUp.js");
-app.use("/signUp",signUpRouter);
+const v1Route = require ("./routes/index.js")
+app.use("/api/v1",v1Route)
 
 
 app.listen (PORT,  ()=>{console.log("wer are listening on " + PORT)})
