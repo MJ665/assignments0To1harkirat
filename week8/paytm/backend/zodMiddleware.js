@@ -135,17 +135,54 @@ const signInMiddleware = async (req, res, next) => {
 
 const authMiddleware  = async(req,res,next)=>{
   const authHeader = req.headers.authorization
-  if(!authHeader || !authHeader.startWith("Bearer ")){
+  if(!authHeader || !authHeader.startsWith("Bearer ")){
     return res.status(400).json({msg:"you are sending invalid auth token"})
   }
 const token = authHeader.split(" ")[1]
 try{
   const decode = jwt.verify(token, JWT_SECRET)
+  console.log("came out from auth middleware")
+  // res.locals.token =  token
   res.locals.decode =  decode
   next()
 }catch(err){
   return res.status(400).json({msg:"your token not got verifiec",err:err})
 }
+}
+
+
+
+const updateUserCred = async (req,res,next)=>{
+  const decode = res.locals.decode
+  try{
+    console.log(decode.username)
+    console.log(req.headers['newpassword'])
+    const updateRes = await User.findOneAndUpdate ({username:decode.username},
+      {
+        password:req.headers['newpassword'],
+        firstName:req.headers['firstname'],
+        lastName:req.headers['lastname']},
+      {new:true}
+    ) 
+        console.log("hello" + updateRes)
+        if( updateRes.acknowleged  == false){
+          
+          return res.status (400).json({msg:"not able to update the user", err:"updateRes.acknowledge is false"})
+        }else{
+          console.log(updateRes)
+          const newToken = await jwt.sign({
+            username:decode.username,
+            password:req.headers.newpassword,
+            firstName:req.headers["firstname"],
+            lastName:req.headers["lastname"]}, JWT_SECRET)
+            console.log("came out from updateUserCred middleware")
+  res.locals.newToken = newToken
+    next ()}
+        
+  }catch(err){
+    return res.status(400).json({msg:"cant update the user cred middleware",
+  err:err})
+  }
 }
 
 
@@ -158,5 +195,5 @@ try{
 
 
 module.exports = {
-  signUpMiddleware,signInMiddleware
+  signUpMiddleware,signInMiddleware,authMiddleware,updateUserCred
 };
