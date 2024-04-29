@@ -1,9 +1,6 @@
 const mongoose = require("mongoose")
-const dotenv = require ("dotenv")
-const path = require ("path")
-// const { monitorEventLoopDelay } = require("perf_hooks")
-dotenv.config( {path:path.resolve(__dirname, "./.env")})
-const MONGO_URL = process.env.MONGO_URL
+
+const {MONGO_URL} = require ("./exportEnv")
 console.log(MONGO_URL)
         // mongoose.connect(MONGO_URL)
 
