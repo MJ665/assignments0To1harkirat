@@ -4,6 +4,10 @@ const { default: mongoose } = require("mongoose");
 const { Account } = require("../../db");
 const router = Router();
 
+
+// Applications must ensure that only one thread at a time executes these operations in a client session.
+
+
 // Bad Solution
 // router.post("/transfer", async (req, res) => {
     
@@ -80,6 +84,7 @@ await session.commitTransaction()
 res.json({msg:'transaction complete'})
 }
 catch(err){
+await session.abortTransaction()    
     return res.status (400).json({msg:"the transaction not complete",err:err})
 }
 
