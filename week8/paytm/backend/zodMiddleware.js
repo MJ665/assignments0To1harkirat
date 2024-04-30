@@ -1,5 +1,5 @@
 const zod = require("zod");
-const { User } = require("./db");
+const { User, Account } = require("./db");
 const jwt = require("jsonwebtoken")
 const {JWT_SECRET} = require("./exportEnv")
 
@@ -47,15 +47,19 @@ const signUpMiddleware = async (req, res, next) => {
     }
 
     // Create a new user if not existing
-    const newSignUpUser = new User({
+    const newSignUpUser = await new User({
       username: signUpReqHeader.username,
       password: signUpReqHeader.password,
       firstName: signUpReqHeader.firstName,
       lastName: signUpReqHeader.lastName,
     });
-
+const newSignUpAccount = await new Account({
+  userId:newSignUpUser._id,
+  balane :1+ (Math.random()*1000)
+})
     // Save the new user to the database
     await newSignUpUser.save();
+    await newSignUpAccount.save();
     const token= jwt.sign(signUpReqHeader,JWT_SECRET)
     res.locals.token = token
     next()

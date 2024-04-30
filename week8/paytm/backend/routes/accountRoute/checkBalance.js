@@ -1,12 +1,18 @@
 const { Router } = require("express");
 const router = Router();
 
-
-router.post("/checkBalance", async (req, res) => {
-
-    console.log("we entered in the checkBalance");
+const authMiddleware = require("../../zodMiddleware")
 
 
-});
+    router.get("/", authMiddleware, async (req, res) => {
+        const account = await Account.findOne({
+            userId: req.headers["userid"]
+        });
+    
+        res.json({
+            balance: account.balance
+        })
+    });
+
 
 module.exports = router;
