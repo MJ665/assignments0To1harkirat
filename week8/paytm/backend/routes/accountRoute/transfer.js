@@ -53,6 +53,8 @@ const router = Router();
 // });
 
 router.post ("/" , authMiddleware ,async (req,res,next)=>{
+
+    try{
 const session = await mongoose.startSession(); // Correct way to start a session
 
     session.startTransaction()
@@ -76,6 +78,11 @@ await Account.updateOne({userId : from},{$inc:{balance: -amount}}).session(sessi
 await Account.updateOne({userId : to},{$inc:{balance: amount}}).session(session)
 await session.commitTransaction()
 res.json({msg:'transaction complete'})
+}
+catch(err){
+    return res.status (400).json({msg:"the transaction not complete",err:err})
+}
+
 })
 
 module.exports = router;
