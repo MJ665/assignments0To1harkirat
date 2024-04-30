@@ -1,8 +1,8 @@
-import {BrowserRouter} from "react"
-import {SignUp} from "./components/SignUp.jsx"
-import {SignIn} from "./components/SignIn.jsx"
-import {Dashboard} from "./components/Dashboard.jsx"
-import {Send} from "./components/Send.jsx"
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import {SignUp} from "./pages/SignUp.jsx"
+import {SignIn} from "./pages/SignIn.jsx"
+import {Dashboard} from "./pages/Dashboard.jsx"
+import {Send} from "./pages/Send.jsx"
 function App() {
 
   return (
@@ -13,10 +13,10 @@ function App() {
   <BrowserRouter>
   <Routes>
 
-  <Router path="/signUp" element{<SignUp></SignUp>} ></Router>
-  <Router path="/signIn" element{<SignIn></SignIn>} ></Router>
-  <Router path="/Dashboard" element{<Dashboard></Dashboard>} ></Router>
-  <Router path="/send" element{<Send></Send>} ></Router>
+  <Route path="/signUp" element={<SignUp></SignUp>} ></Route>
+  <Route path="/signIn" element={<SignIn></SignIn>} ></Route>
+  <Route path="/Dashboard" element={<Dashboard></Dashboard>} ></Route>
+  <Route path="/send" element={<Send></Send>} ></Route>
   </Routes>
   </BrowserRouter>        
     </div>
