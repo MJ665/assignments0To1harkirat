@@ -53,7 +53,8 @@ const router = Router();
 // });
 
 router.post ("/" , authMiddleware ,async (req,res,next)=>{
-    const session = mongoose.startSession()
+const session = await mongoose.startSession(); // Correct way to start a session
+
     session.startTransaction()
     const {amount , to,from } = req.body;
     const fromAccount = await Account.findOne ({

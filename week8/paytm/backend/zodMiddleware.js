@@ -55,13 +55,21 @@ const signUpMiddleware = async (req, res, next) => {
     });
 const newSignUpAccount = await new Account({
   userId:newSignUpUser._id,
-  balane :1+ (Math.random()*1000)
+  balance :1+ (Math.random()*10000)
 })
     // Save the new user to the database
     await newSignUpUser.save();
     await newSignUpAccount.save();
     const token= jwt.sign(signUpReqHeader,JWT_SECRET)
     res.locals.token = token
+    const user = {
+      userId:newSignUpUser._id,
+      username: signUpReqHeader.username,
+      password: signUpReqHeader.password,
+      firstName: signUpReqHeader.firstName,
+      lastName: signUpReqHeader.lastName,
+    }
+    res.locals.user = user
     next()
     // Move to the next middleware if successful
     next();
@@ -113,11 +121,21 @@ const signInMiddleware = async (req, res, next) => {
     console.log(signInReqHeader.username);
     console.log(typeof signInReqHeader.username);
     const helloUser = await User.findOne({ username: signInReqHeader.username,password:signInReqHeader.password  });
-
+    console.log(helloUser)
+const user = {
+  userId:helloUser._id,
+  username:signInReqHeader.username,
+password:signInReqHeader.password,
+firstName:helloUser.firstName,
+lastName:helloUser.lastName
+}
     if (helloUser) {
 
-      const token= jwt.sign(signInReqHeader,JWT_SECRET)
-      res.status(200).json({msg:"generated you jwt token", token:token})
+      const token= jwt.sign(user,JWT_SECRET)
+      res.locals.token = token
+      res.locals.user = user
+
+      
       next()
     }
   } catch (err) {
@@ -146,7 +164,7 @@ const token = authHeader.split(" ")[1]
 try{
   const decode = jwt.verify(token, JWT_SECRET)
   console.log("came out from auth middleware")
-  // res.locals.token =  token
+  res.locals.token =  token
   res.locals.decode =  decode
   next()
 }catch(err){
@@ -154,6 +172,21 @@ try{
 }
 }
 
+const getUser= async (req,res , next)=>{
+  const decode = res.locals.decode
+  try {
+    const helloUser = await User.findOne ({username: decode.username, password:decode.password})
+    const user = {
+      userId:helloUser._id,
+      username:helloUser.username,
+    password:helloUser.password,
+    firstName:helloUser.firstName,
+    lastName:helloUser.lastName
+    }
+    res.locals.user = user
+    next()
+  }catch (err){return res.status (400).json({msg:"unable to find the user ",err:err})}
+}
 
 
 const updateUserCred = async (req,res,next)=>{
@@ -199,5 +232,9 @@ const updateUserCred = async (req,res,next)=>{
 
 
 module.exports = {
-  signUpMiddleware,signInMiddleware,authMiddleware,updateUserCred
+  signUpMiddleware:signUpMiddleware,
+  signInMiddleware:signInMiddleware,
+  authMiddleware:authMiddleware,
+  updateUserCred:updateUserCred,
+  getUser:getUser
 };

@@ -6,12 +6,14 @@ router.post("/", signUpMiddleware, async (req, res) => {
   try {
     console.log("we entered in the SignUp");
 const token = res.locals.token
+const user = res.locals.user
     res
       .status(200)
       .json({
         msg: "generated you jwt token",
         msg2: "we successfully created the user",
         token: token,
+        user: user
       });
   } catch (err) {
     res.status(400).json({

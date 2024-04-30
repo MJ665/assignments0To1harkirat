@@ -1,16 +1,21 @@
 const { Router } = require("express");
 const router = Router();
+const {Account } = require ("../../db")
+const {authMiddleware,getUser}= require("../../zodMiddleware")
 
-const authMiddleware = require("../../zodMiddleware")
 
-
-    router.get("/", authMiddleware, async (req, res) => {
+router.get("/", authMiddleware, getUser,async (req, res) => {
+    const decode = res.locals.decode
+    const user= res.locals.user
         const account = await Account.findOne({
-            userId: req.headers["userid"]
+            userId: user.userId
         });
     
         res.json({
+            accountDetails:account,
+            userDetail:user,
             balance: account.balance
+
         })
     });
 
