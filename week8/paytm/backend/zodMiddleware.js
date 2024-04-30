@@ -7,7 +7,7 @@ const {JWT_SECRET} = require("./exportEnv")
 
 // Define Zod schema for validation
 const userSignUpSchema = zod.object({
-  username: zod.string(),
+  username: zod.string().toLowerCase(),
   password: zod.string().min(8),
   firstName: zod.string().min(2),
   lastName: zod.string().min(2).max(50),
@@ -82,7 +82,7 @@ const signUpMiddleware = async (req, res, next) => {
 
 // Define Zod schema for validation
 const userSignInSchema = zod.object({
-  username: zod.string(),
+  username: zod.string().toLowerCase(),
   password: zod.string().min(8),
  
 });

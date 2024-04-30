@@ -3,10 +3,13 @@ const mongoose = require("mongoose")
 const {MONGO_URL} = require ("./exportEnv")
 console.log(MONGO_URL)
         // mongoose.connect(MONGO_URL)
-
-mongoose.connect (MONGO_URL).then(()=>{
+try{
+ mongoose.connect (MONGO_URL).then(()=>{
     console.log("connected to mongo")
 })
+}catch(err){
+    throw console.error("Not Connected to MongoDb the error is "+err);
+}
     const userSchema = mongoose.Schema({
         username : {
             type :String,
@@ -34,16 +37,28 @@ mongoose.connect (MONGO_URL).then(()=>{
             minLength:8,
             maxLength:50
         }
-        ,
-        currentBalance: {type:Number, default:0  },
         
 
     })
-  
+    const User = mongoose.model ("User",userSchema) 
+  const AccountSchema = mongoose.Schema({
+    userId:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:User,
+        required:true
+    },
+    balance:{
+        type:Number,
+        required:true,
+        default:0
+    }
+    
+  })
+  const Account = mongoose.model("Account",AccountSchema)
 
 
-const User = mongoose.model ("User",userSchema) 
+
 module.exports = {
-    User:User
-
+    User:User,
+Account:Account
 }
