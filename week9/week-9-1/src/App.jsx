@@ -4,15 +4,15 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// function App() {
+//   const [count, setCount] = useState(0)
 
-  return (
-    <>
-<MyComponent/>
-    </>
-  )
-}
+//   return (
+//     <>
+// <MyComponent/>
+//     </>
+//   )
+// }
 // function MyComponent (){
 //   const [count , setCount ] = useState(0)
 //   const incrementCount =()=>{setCount (count+1)}
@@ -52,8 +52,32 @@ function App() {
           
           
 
+
+
+
+
+
+
+
+
+
+
+
+function App() {
+  let [render ,  setRender] = useState(true)
+  useEffect(()=>{
+    setInterval(()=>{
+      setRender(render = !render)
+    },5000)
+  })
+
+  if(!render){
+    return<div> this is second empty div</div>
+  }else{return(<MyComponent></MyComponent>)}
+}
+
 function MyComponent (){
-useEffect(()=>{console.error ("component mounted")//.  line a
+useEffect(()=>{console.log ("component mounted")//.  line a
 
 return ()=>{  console.log("component unmounted")}// line B
 },[])            
@@ -78,6 +102,15 @@ for cleanup
 line b runns
 
 line b runns whenever the dependencies change or the component unmounts
+
+hence the useEffect has 2 parts
+
+line a ran when component mounted this is called life cycle events
+line b ran when component unmounted this is called life cycle events
+
+
+
+
 */
             return (
           <div>
