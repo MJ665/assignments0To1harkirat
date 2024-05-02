@@ -138,35 +138,115 @@ import './App.css'
 
 
 
-// IN CLAASS BASED COMPONENT MOUNT AND UNMOUNT
+// // IN CLAASS BASED COMPONENT MOUNT AND UNMOUNT
 
 
+// function App() {
+//   let [render ,  setRender] = useState(true)
+//   useEffect(()=>{
+//     setInterval(()=>{
+//       setRender(render = !render)
+//     },5000)
+//   })
+
+//   if(!render){
+//     return<div> this is second empty div</div>
+//   }else{return(<MyComponent></MyComponent>)}
+// }
+// import React from 'react'
+// class MyComponent extends React.Component{
+// componentDidMount (){
+//   console.log("the component mounted")
+// }
+// componentWillUnmount (){
+//   console.log("the component unmounted")
+// }
+// render(){
+//   return(
+//   <div>
+//       from inside my component
+//           </div>)
+// }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// SWR  
+// SWR is a very famous library for react hook for data fetching
+// we are trying to make the similar thing
+
+
+import axios from 'axios'
+
+
+function useTodos (){
+  const [todos, setTodos] = useState([])
+  const [loading , setLoading ] = useState (true)
+
+  useEffect(() => {
+    axios.get("https://sum-server.100xdevs.com/todos")
+      .then(res => {
+        setTodos(res.data.todos);
+        setLoading (false)
+      })
+  }, [])
+
+  return {todos , loading}
+}
 function App() {
-  let [render ,  setRender] = useState(true)
-  useEffect(()=>{
-    setInterval(()=>{
-      setRender(render = !render)
-    },5000)
-  })
+ const {todos,loading} = useTodos()
+ if (loading ){return (<div>loading ...</div>)}
 
-  if(!render){
-    return<div> this is second empty div</div>
-  }else{return(<MyComponent></MyComponent>)}
+  return (
+    <>
+      {todos.map(todo => <Track todo={todo} />)}
+    </>
+  )
 }
-import React from 'react'
-class MyComponent extends React.Component{
-componentDidMount (){
-  console.log("the component mounted")
-}
-componentWillUnmount (){
-  console.log("the component unmounted")
-}
-render(){
-  return(
-  <div>
-      from inside my component
-          </div>)
-}
+
+function Track({ todo }) {
+  return <div>
+    {todo.title}
+    <br />
+    {todo.description}
+  </div>
 }
 
 
