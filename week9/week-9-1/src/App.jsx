@@ -76,6 +76,8 @@ line a runns
 then when the code goes away from the DOM
 for cleanup 
 line b runns
+
+line b runns whenever the dependencies change or the component unmounts
 */
             return (
           <div>
