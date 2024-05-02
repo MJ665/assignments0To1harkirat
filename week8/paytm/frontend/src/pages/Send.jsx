@@ -46,22 +46,45 @@ const [amount,setAmount]= useState()
                     />
                     </div>
                     <button
-                    onClick={()=>{
-                        try{
-                        const token = localStorage.getItem("authorization")
-                        axios.post("http://localhost:3000/api/v1/account/transfer",{
-                            
-                                "to":id,
-                                "amount":parseInt (amount)
-                                                           
-                        },{
-                            headers:{
-                                authorization:token
-                            }
-                        }).then((response)=>{
-                            alert(response.data.msg)
-                        })}catch(err){{alert ("we got an error \n" + err)}}
-                    }} 
+                   onClick={() => {
+                    const token = localStorage.getItem("authorization");
+                    if (!token) {
+                      alert("Authorization token not found.");
+                      return;
+                    }
+                  
+                    if (!id) {
+                      alert("Recipient ID is missing.");
+                      return;
+                    }
+                  
+                    if (!amount) {
+                      alert("Amount is required.");
+                      return;
+                    }
+                  
+                    axios
+                      .post(
+                        "http://localhost:3000/api/v1/account/transfer",
+                        {
+                          to: id,
+                          amount: parseInt(amount),
+                        },
+                        {
+                          headers: {
+                            authorization: token,
+                          },
+                        }
+                      )
+                      .then((response) => {
+                        alert(response.data.msg);
+                      })
+                      .catch((error) => {
+                        console.error("Error initiating transfer:", error); // Log error for debugging
+                        alert("An error occurred while initiating the transfer.");
+                      });
+                  }}
+                  
                     className="justify-center rounded-md text-sm font-medium ring-offset-background transition-colors h-10 px-4 py-2 w-full bg-green-500 text-white">
                         Initiate Transfer
                     </button>
