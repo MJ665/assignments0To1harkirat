@@ -14,6 +14,7 @@ const userSignUpSchema = zod.object({
 });
 
 const signUpMiddleware = async (req, res, next) => {
+  try{
   console.log(req.headers);
   const signUpReqHeader = {
     username: req.headers['username'], // Case-insensitive but case must match
@@ -77,6 +78,7 @@ const newSignUpAccount = await new Account({
     // Handle errors occurring during the entire process
     res.status(500).json({ msg: "Error during sign-up", error: err.message });
   }
+}catch(err){return res.status(400).json({msg:"not able to sign up header incomplete",err:err})}
 };
 
 
@@ -100,6 +102,7 @@ const userSignInSchema = zod.object({
 });
 
 const signInMiddleware = async (req, res, next) => {
+  try{
   const signInReqHeader = {
     username: req.headers['username'], // Case-insensitive but case must match
     password: req.headers['password']
@@ -142,6 +145,7 @@ lastName:helloUser.lastName
     // Handle errors occurring during the entire process
     return res.status(500).json({ msg: "Error during sign-up", error: err.message });
   }
+}catch(err){return res.status(400).json({msg:"not able to sign in header incomplete",err:err})}
 };
 
 
@@ -156,6 +160,7 @@ lastName:helloUser.lastName
 
 
 const authMiddleware  = async(req,res,next)=>{
+  try{
   const authHeader = req.headers.authorization
   if(!authHeader || !authHeader.startsWith("Bearer ")){
     return res.status(400).json({msg:"you are sending invalid auth token"})
@@ -169,10 +174,11 @@ try{
   next()
 }catch(err){
   return res.status(400).json({msg:"your token not got verifiec",err:err})
-}
+}}catch(err){return res.status(400).json({msg:"not able to authorize header incomplete",err:err})}
 }
 
 const getUser= async (req,res , next)=>{
+  
   const decode = res.locals.decode
   try {
     const helloUser = await User.findOne ({username: decode.username, password:decode.password})
