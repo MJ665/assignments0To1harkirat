@@ -1,5 +1,5 @@
 const { Router } = require("express");
-const { authMiddleware } = require("../../zodMiddleware");
+const { authMiddleware, getUser } = require("../../zodMiddleware");
 const { default: mongoose } = require("mongoose");
 const { Account } = require("../../db");
 const router = Router();
@@ -56,19 +56,26 @@ const router = Router();
 
 // });
 
-router.post ("/" , authMiddleware ,async (req,res,next)=>{
+router.post ("/" , authMiddleware,getUser ,async (req,res,next)=>{
 
+    const session = await mongoose.startSession(); // Correct way to start a session
     try{
-const session = await mongoose.startSession(); // Correct way to start a session
 
     session.startTransaction()
-    const {amount , to,from } = req.body;
+    const {amount , to } = req.body;
+
+
+    const user= res.locals.user
+
+
+const from =user.userId
+console.log(from)
     const fromAccount = await Account.findOne ({
         userId : from
     }).session (session)
     if (!fromAccount || fromAccount.balance < amount){
         await session.abortTransaction()
-        return res.status (400).json({msg:"insufficient balance"})
+        return res.status (400).json({msg:"insufficient balance or account dosent exists"})
     }
     const toAccount = await Account.findOne({
         userId:to

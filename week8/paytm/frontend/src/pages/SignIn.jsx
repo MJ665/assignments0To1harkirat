@@ -4,10 +4,12 @@ import { Heading } from "../components/Heading"
 import { InputBox } from "../components/InputBox"
 import { SubHeading } from "../components/SubHeading"
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 import axios from "axios"
 export const SignIn = () => {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate()
 
     return <div className="bg-slate-300 h-screen flex justify-center">
     <div className="flex flex-col justify-center">
@@ -29,13 +31,19 @@ export const SignIn = () => {
             label={"Password"}
           />
         <div className="pt-4">
-          <Button onClick={async()=>{
-               await axios.post("http://localhost:3000/api/v1/user/signUp",{},{
+          <Button onClick={async()=>{try{
+               const response = await axios.get("http://localhost:3000/api/v1/user/signIn",{
                 headers:{
                   username :userName,
+                 
                   password:password
                 }
               })
+              console.log(response.data.token)
+               localStorage.setItem("authorization" , "Bearer "+response.data.token)
+            navigate('/dashboard')
+            }catch(err)
+            {console.error("we got an error \n"+err)}
             }}label={"Sign in"} />
         </div>
         <BottomWarning label={"Don't have an account?"} buttonText={"Sign up"} to={"/signup"} />
