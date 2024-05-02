@@ -30,10 +30,10 @@ const signUpMiddleware = async (req, res, next) => {
     const zodRes = userSignUpSchema.safeParse(signUpReqHeader);
 
     if (!zodRes.success) {
-      res
+      return res
         .status(400)
         .json({ msg: "Zod sign-up error", errors: zodRes.error.errors });
-      return; // Return early to avoid further processing
+      ; // Return early to avoid further processing
     }
 
     // Check if user already exists
@@ -42,7 +42,7 @@ const signUpMiddleware = async (req, res, next) => {
     const existingUser = await User.exists({ username: signUpReqHeader.username });
 
     if (existingUser) {
-      res.status(400).json({ msg: "User already exists" });
+      return res.status(400).json({ msg: "User already exists" });
       
  // Return early if user exists
     }
@@ -76,7 +76,7 @@ const newSignUpAccount = await new Account({
     next();
   } catch (err) {
     // Handle errors occurring during the entire process
-    res.status(500).json({ msg: "Error during sign-up", error: err.message });
+    return res.status(500).json({ msg: "Error during sign-up", error: err.message });
   }
 }catch(err){return res.status(400).json({msg:"not able to sign up header incomplete",err:err})}
 };

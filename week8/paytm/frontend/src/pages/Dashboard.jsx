@@ -1,7 +1,8 @@
+import { Balance } from "../components/Balance"
 const Dashboard = ()=>{
     return (
         <div>
-        hello
+<Balance   />
         </div>
     )
 }
