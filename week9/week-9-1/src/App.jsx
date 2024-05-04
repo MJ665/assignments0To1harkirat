@@ -737,7 +737,7 @@ function App() {
   return (
     <>
      <input type=' text' placeholder=' searchBar'
-      onChange={(e)=>{setInputValue(e.target.value)}}> </input>
+      onChange={(e)=>{setInputValue(e.target.value)}}/> 
       {/* now you have to debounce the make the backend call and  display the output of the backend request */}
       <div> after deboune {debounceValue}</div>
     </>
