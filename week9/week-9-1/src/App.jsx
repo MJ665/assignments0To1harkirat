@@ -4,6 +4,13 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+// NOte : a function eg (myFunc, mySum) cannot never use hooks
+// a Component eg(App, ButtonComponent, CardComponent) which return xml can use hooks
+// a custom hook eg (useMyHook, useSumHook) which return xml can use hooks
+
+
+
+
 // function App() {
 //   const [count, setCount] = useState(0)
 
@@ -745,3 +752,8 @@ function App() {
 }
 
 export default App
+
+
+
+
+
