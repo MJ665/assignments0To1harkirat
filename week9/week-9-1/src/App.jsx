@@ -494,33 +494,155 @@ function Profile() {
 
 
 
-// useMousePointerHook
+// // useMousePointerHook
 
 
 
 
-function useMousePointerHook() {
-  const [position,setPosition] = useState({x:0,y:0});
-  const handleMouseMove = (e)=>{
-    setPosition ({x:e.clientX, y:e.clientY})
-  }
+// function useMousePointerHook() {
+//   const [position,setPosition] = useState({x:0,y:0});
+//   const handleMouseMove = (e)=>{
+//     setPosition ({x:e.clientX, y:e.clientY})
+//   }
 
-  useEffect(() => {
-    window.addEventListener("mousemove",handleMouseMove)
-    return ()=>{
-      window.addEventListener("mousemove",handleMouseMove)
-    }
-  }, [])
+//   useEffect(() => {
+//     window.addEventListener("mousemove",handleMouseMove)
+//     return ()=>{
+//       window.addEventListener("mousemove",handleMouseMove)
+//     }
+//   }, [])
 
-  return position;
+//   return position;
+// }
+
+// function App() {
+//   const mousePosition = useMousePointerHook();
+
+//   return (
+//     <>
+//       your current mouse position is {mousePosition.x},{ mousePosition.y}
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // useDimensions
+
+
+
+
+// function useDimensions() {
+//   const [dimension,setDimension] = useState({x:0,y:0});
+//   const handleResize = (e)=>{
+//     console.log(e)
+//     setDimension ({x:window.innerHeight, y:window.innerWidth})
+//   }
+
+//   useEffect(() => {
+// window.addEventListener("resize",handleResize)
+//     return ()=>{
+//       window.addEventListener("resize",handleResize)
+//     }
+//   }, [])
+
+//   return [dimension.x , dimension.y];
+// }
+
+// function App() {
+//   const [width,height] = useDimensions();
+
+//   return (
+//     <>
+//       dimensions is {width},{height}
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useInterval
+
+
+
+
+function useInterval(callback , delay) {
+  useEffect (()=>{
+    const intervalId = setInterval (callback,delay)
+    return (()=>{clearInterval(intervalId)})
+  },[callback,delay])
+
 }
 
 function App() {
-  const mousePosition = useMousePointerHook(5);
+  const [count,setCount] =useState(0)
+useInterval(()=>{
+setCount ((c)=>{return c+1})
+},2000);
 
   return (
     <>
-      your current mouse position is {mousePosition.x},{ mousePosition.y}
+      count is {count}
     </>
   )
 }
