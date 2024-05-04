@@ -621,28 +621,125 @@ function Profile() {
 
 
 
-// useInterval
+// // useInterval
 
 
 
 
-function useInterval(callback , delay) {
-  useEffect (()=>{
-    const intervalId = setInterval (callback,delay)
-    return (()=>{clearInterval(intervalId)})
-  },[callback,delay])
+// function useInterval(callback , delay) {
+//   useEffect (()=>{
+//     const intervalId = setInterval (callback,delay)
+//     return (()=>{clearInterval(intervalId)})
+//   },[callback,delay])
 
-}
+// }
+
+// function App() {
+//   const [count,setCount] =useState(0)
+// useInterval(()=>{
+// setCount ((c)=>{return c+1})
+// },2000);
+
+//   return (
+//     <>
+//       count is {count}
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// useDebounce
+
+
+// It looks like you're trying to create a debouncing function in a React application, but there are some issues with the useDebounce implementation. Let's address these issues and explain what a debounce function is, how it can be implemented in React, and how to use it effectively to reduce the number of backend requests when a user types in a search bar.
+
+// What is Debounce?
+// Debounce is a technique to ensure that a function doesn't get called repeatedly within a short time frame. It's often used in search bars to avoid excessive backend calls when users type quickly. Instead, it waits for a certain period of inactivity before triggering the desired action.
+
+
+const useDebounce = (value, delay) => {
+  // State to store the debounced value
+  const [debouncedValue, setDebouncedValue] = useState(value);
+
+  useEffect(() => {
+    // Set up a timer to update the debounced value after the specified delay
+    const timerId = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+
+    // Clean up the timer if the value changes before the delay has passed
+    return () => clearTimeout(timerId);
+  }, [value, delay]);
+
+  return debouncedValue;
+};
 
 function App() {
-  const [count,setCount] =useState(0)
-useInterval(()=>{
-setCount ((c)=>{return c+1})
-},2000);
+  const [inputValue,setInputValue] =useState("")
+  const debounceValue = useDebounce(inputValue,5000)
+
 
   return (
     <>
-      count is {count}
+     <input type=' text' placeholder=' searchBar'
+      onChange={(e)=>{setInputValue(e.target.value)}}> </input>
+      {/* now you have to debounce the make the backend call and  display the output of the backend request */}
+      <div> after deboune {debounceValue}</div>
     </>
   )
 }
