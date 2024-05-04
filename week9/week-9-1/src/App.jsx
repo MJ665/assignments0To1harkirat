@@ -345,61 +345,64 @@ import './App.css'
 
 
 
-// this is the feature of the api call with auto refresh to get the latest data from the server
-// the old clock should stop and the new clock should start
-
-
-import axios from 'axios'
-
-
-function useTodos (n){
-  const [todos, setTodos] = useState([])
-  const [loading , setLoading ] = useState (true)
-
-  useEffect(() => {
-    const setIntervalValue= setInterval(()=>{
-      axios.get("https://sum-server.100xdevs.com/todos")
-      .then(res => {
-        setTodos(res.data.todos);
-        setLoading (false)
-      })
-    },n*1000)
-    axios.get("https://sum-server.100xdevs.com/todos") // to run atleast one time
-      .then(res => {
-        setTodos(res.data.todos);
-        setLoading (false)
-      })
-      return (()=>{ // this is the clean up logic to clear the old clock
-        clearInterval(setIntervalValue)
-      })
-  }, [n])
-
-  return {todos , loading}
-}
-function App() {
- const {todos,loading} = useTodos(2)
- if (loading ){return (<div>loading ...</div>)}
-
-  return (
-    <>
-      {todos.map(todo => <Track todo={todo} />)}
-    </>
-  )
-}
-
-function Track({ todo }) {
-  return <div>
-    {todo.title}
-    <br />
-    {todo.description}
-  </div>
-}
 
 
 
+// // this is the feature of the api call with auto refresh to get the latest data from the server
+// // the old clock should stop and the new clock should start
 
 
-          export default App
+// import axios from 'axios'
+
+
+// function useTodos (n){
+//   const [todos, setTodos] = useState([])
+//   const [loading , setLoading ] = useState (true)
+
+//   useEffect(() => {
+//     const setIntervalValue= setInterval(()=>{
+//       axios.get("https://sum-server.100xdevs.com/todos")
+//       .then(res => {
+//         setTodos(res.data.todos);
+//         setLoading (false)
+//       })
+//     },n*1000)
+//     axios.get("https://sum-server.100xdevs.com/todos") // to run atleast one time
+//       .then(res => {
+//         setTodos(res.data.todos);
+//         setLoading (false)
+//       })
+//       return (()=>{ // this is the clean up logic to clear the old clock
+//         clearInterval(setIntervalValue)
+//       })
+//   }, [n])
+
+//   return {todos , loading}
+// }
+// function App() {
+//  const {todos,loading} = useTodos(2)
+//  if (loading ){return (<div>loading ...</div>)}
+
+//   return (
+//     <>
+//       {todos.map(todo => <Track todo={todo} />)}
+//     </>
+//   )
+// }
+
+// function Track({ todo }) {
+//   return <div>
+//     {todo.title}
+//     <br />
+//     {todo.description}
+//   </div>
+// }
+
+
+
+
+
+//           export default App
 
 
 
@@ -429,3 +432,97 @@ function Profile() {
 */
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function useIsOnline() {
+//   const [isOnline, setIsOnline] = useState(window.navigator.onLine);
+
+//   useEffect(() => {
+//     window.addEventListener('online', () => setIsOnline(true));
+//     window.addEventListener('offline', () => setIsOnline(false));
+//   }, [])
+
+//   return isOnline;
+// }
+
+// function App() {
+//   const isOnline = useIsOnline(5);
+
+//   return (
+//     <>
+//       {isOnline ? "You are online yay!" : "You are not online"}
+//     </>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+// useMousePointerHook
+
+
+
+
+function useMousePointerHook() {
+  const [position,setPosition] = useState({x:0,y:0});
+  const handleMouseMove = (e)=>{
+    setPosition ({x:e.clientX, y:e.clientY})
+  }
+
+  useEffect(() => {
+    window.addEventListener("mousemove",handleMouseMove)
+    return ()=>{
+      window.addEventListener("mousemove",handleMouseMove)
+    }
+  }, [])
+
+  return position;
+}
+
+function App() {
+  const mousePosition = useMousePointerHook(5);
+
+  return (
+    <>
+      your current mouse position is {mousePosition.x},{ mousePosition.y}
+    </>
+  )
+}
+
+export default App
