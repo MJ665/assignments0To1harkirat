@@ -38,3 +38,75 @@ const isLegal  =(age :number):boolean=>{
     return false
 }
 console.log(isLegal(4))
+
+
+
+
+
+
+
+
+
+
+
+function runAfter1S (fn:()=>void){
+    setTimeout (fn, 1000)
+}
+runAfter1S(function(){
+    console.log("hi there")
+})
+
+
+
+
+
+
+
+const func2 = (a: number, b: number): number => {
+    return a * b;
+};
+
+const func1 = (myFunc: (a: number, b: number) => number, a: number, b: number, callback: (result: number) => void): void => {
+    setTimeout(() => {
+        const result = myFunc(a, b) + myFunc(a, b); // Calculate the result
+        callback(result); // Pass the result to the callback
+    }, 1000); // 1-second delay
+};
+
+// Using a callback to handle the asynchronous result
+func1(func2, 2, 3, (result) => {
+    console.log("The result after this is " + result);
+});
+
+
+
+
+
+
+
+
+
+const func3 = async () => {
+    // Function that multiplies two numbers
+    const func2 = (a: number, b: number): number => {
+      return a * b;
+    };
+  
+    // Function that returns a Promise after a timeout
+    const func1 = (myFunc: (a: number, b: number) => number, a: number, b: number): Promise<number> => {
+      return new Promise((resolve) => {
+        setTimeout(() => {
+          // Calculate the sum of two myFunc results
+          const result = myFunc(a, b) + myFunc(a, b);
+          resolve(result); // Resolve with the calculated result
+        }, 1000); // 1-second delay
+      });
+    };
+  
+    // Correct usage of await with a Promise
+    const result = await func1(func2, 2, 3);
+    console.log("The result after this is " + result);
+  };
+  
+  func3();
+  
