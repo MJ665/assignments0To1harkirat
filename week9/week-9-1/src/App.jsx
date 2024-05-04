@@ -213,25 +213,171 @@ import './App.css'
 // we are trying to make the similar thing
 
 
+// import axios from 'axios'
+
+
+// function useTodos (){
+//   const [todos, setTodos] = useState([])
+//   const [loading , setLoading ] = useState (true)
+
+//   useEffect(() => {
+   
+//     axios.get("https://sum-server.100xdevs.com/todos")
+//       .then(res => {
+//         setTodos(res.data.todos);
+//         setLoading (false)
+//       })
+//   }, [])
+
+//   return {todos , loading}
+// }
+// function App() {
+//  const {todos,loading} = useTodos()
+//  if (loading ){return (<div>loading ...</div>)}
+
+//   return (
+//     <>
+//       {todos.map(todo => <Track todo={todo} />)}
+//     </>
+//   )
+// }
+
+// function Track({ todo }) {
+//   return <div>
+//     {todo.title}
+//     <br />
+//     {todo.description}
+//   </div>
+// }
+
+
+
+
+
+//           export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // this is the feature of the api call with auto refresh to get the latest data from the server
+
+
+//           import axios from 'axios'
+
+
+//           function useTodos (n){
+//             const [todos, setTodos] = useState([])
+//             const [loading , setLoading ] = useState (true)
+          
+//             useEffect(() => {
+//               setInterval(()=>{
+//                 axios.get("https://sum-server.100xdevs.com/todos")
+//                 .then(res => {
+//                   setTodos(res.data.todos);
+//                   setLoading (false)
+//                 })
+//               },n*1000)
+//               axios.get("https://sum-server.100xdevs.com/todos") // to run atleast one time
+//                 .then(res => {
+//                   setTodos(res.data.todos);
+//                   setLoading (false)
+//                 })
+//             }, [n])
+          
+//             return {todos , loading}
+//           }
+//           function App() {
+//            const {todos,loading} = useTodos(2)
+//            if (loading ){return (<div>loading ...</div>)}
+          
+//             return (
+//               <>
+//                 {todos.map(todo => <Track todo={todo} />)}
+//               </>
+//             )
+//           }
+          
+//           function Track({ todo }) {
+//             return <div>
+//               {todo.title}
+//               <br />
+//               {todo.description}
+//             </div>
+//           }
+          
+          
+          
+          
+          
+//                     export default App
+          
+
+
+// this auto refresh of the applicatiion has some error that
+// when the  dependency array n changes we would already have a interval running so we have to clear the old interval and strat the new logiic
+
+
+
+// this is the feature of the api call with auto refresh to get the latest data from the server
+// the old clock should stop and the new clock should start
+
+
 import axios from 'axios'
 
 
-function useTodos (){
+function useTodos (n){
   const [todos, setTodos] = useState([])
   const [loading , setLoading ] = useState (true)
 
   useEffect(() => {
-    axios.get("https://sum-server.100xdevs.com/todos")
+    const setIntervalValue= setInterval(()=>{
+      axios.get("https://sum-server.100xdevs.com/todos")
       .then(res => {
         setTodos(res.data.todos);
         setLoading (false)
       })
-  }, [])
+    },n*1000)
+    axios.get("https://sum-server.100xdevs.com/todos") // to run atleast one time
+      .then(res => {
+        setTodos(res.data.todos);
+        setLoading (false)
+      })
+      return (()=>{ // this is the clean up logic to clear the old clock
+        clearInterval(setIntervalValue)
+      })
+  }, [n])
 
   return {todos , loading}
 }
 function App() {
- const {todos,loading} = useTodos()
+ const {todos,loading} = useTodos(2)
  if (loading ){return (<div>loading ...</div>)}
 
   return (
