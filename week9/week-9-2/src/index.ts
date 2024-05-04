@@ -177,9 +177,23 @@ const func3 = async () => {
 
 
   
+// this is violating the DRY principal do not repeat your self
+interface User {
+    
+    firstName :string,
+    lastName:string,
+    age:number,
+    email?:string // this is a optional argument the user can pass and cannnot pass it
+}
+function isLegal1 (user:User):boolean{
+    if (user.age>18){
+         return true
+    }else {return false}
+}
 
+function greet (user:User):void{
+    console.log("hi there "+ user.firstName)
+}
 
-
-
-
+greet({firstName:"harkirat",lastName:"singh",age:20})
 
