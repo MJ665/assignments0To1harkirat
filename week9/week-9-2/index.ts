@@ -11,7 +11,30 @@
 console.log("hello")
 
 
-const x:Number = 1
+const  x:Number = 1
 console.log(x)
 
 
+const myGreet = (name:string)=>{
+    console.log("hari Om " + name)
+}
+myGreet("harish")
+const myGreet2 = (name:any)=>{
+    console.log("hari Om " + name)
+}
+myGreet2(['harish',23,"Mahesh"])
+
+
+
+
+const sumFunc = (a:number , b:number):number=>{
+    return a+b
+}
+console.log(sumFunc(2,4))
+
+
+const isLegal  =(age :number):boolean=>{
+    if(age >18){return true}
+    return false
+}
+console.log(isLegal(4))
