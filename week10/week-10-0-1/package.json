@@ -1,6 +1,7 @@
 {
   "name": "week-10-0-1",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
