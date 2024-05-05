@@ -899,3 +899,4 @@ console.log(calc.add(10, 5));
 
 
 
+// type Scripit Done 
