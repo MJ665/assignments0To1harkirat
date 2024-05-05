@@ -656,3 +656,105 @@ console.log(Direction5.up) // ----> 23
 console.log(Direction5.down) // ---->24
 console.log(Direction5.left) // ---->234
 console.log(Direction5.right) // ---->235
+
+
+
+
+
+
+
+
+// // Enum Usecase in express
+
+// enum ResponseStatus {
+//     Success = 200,
+//     NotFound = 404,
+//     Error = 500
+// }
+
+// app.get("/', (req, res) => {
+//     if (!req.query.userId) {
+// 			res.status(ResponseStatus.Error).json({})
+//     }
+//     // and so on...
+// 		res.status(ResponseStatus.Success).json({});
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Generics
+// type Input = number | string
+// function FiristEl (arr:Input[]){
+//     return arr[0]
+// }
+// const value1 = FiristEl (["harkirat","singh"])
+// const value2= FiristEl ([1,2,3,4])
+// const value3= FiristEl (["harkirat","singh",1,2,3])// ----> error
+// console.log(value . toUpperCase()) // -------> error
+
+
+
+
+
+// Generics enable you to create components that work with any data type while still providing compile-time type safety.
+
+function identity<T>(arg: T): T {
+    return arg;
+}
+
+let output1 = identity<string>("myString");
+let output2 = identity<number>(100);
+
+
+
+
+
+
+function getFirstElement<T>(arr: T[]) {
+    return arr[0];
+}
+
+const el = getFirstElement(["harkiratSingh", "ramanSingh"]);
+console.log(el.toLowerCase())
