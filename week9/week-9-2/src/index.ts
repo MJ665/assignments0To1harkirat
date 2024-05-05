@@ -596,3 +596,63 @@ console.log(Direction.right); // ----> 3
 
 
 
+
+
+
+
+// What happens when we give a custom number value to a enum
+
+enum Direction3 { "up"=1,"down"=21,"left"=245,"right"=52}
+function doSomething3(keyPressed:Direction3){
+    // do something
+}
+
+doSomething3(Direction3.up)
+doSomething3(Direction3.down)
+doSomething3(Direction3.left)
+doSomething3(Direction3.right)
+
+console.log(Direction3.up) // ----> 01
+console.log(Direction3.down) // ---->21
+console.log(Direction3.left) // ---->245
+console.log(Direction3.right) // ---->52
+
+
+
+
+
+
+enum Direction4 { "up"=23,"down","left","right"}
+function doSomething4(keyPressed:Direction4){
+    // do something
+}
+
+doSomething4(Direction4.up)
+doSomething4(Direction4.down)
+doSomething4(Direction4.left)
+doSomething4(Direction4.right)
+
+console.log(Direction4.up) // ----> 23
+console.log(Direction4.down) // ---->24
+console.log(Direction4.left) // ---->25
+console.log(Direction4.right) // ---->26
+
+
+
+
+
+
+enum Direction5 { "up"=23,"down","left"=234,"right"}
+function doSomething5(keyPressed:Direction5){
+    // do something
+}
+
+doSomething5(Direction5.up)
+doSomething5(Direction5.down)
+doSomething5(Direction5.left)
+doSomething5(Direction5.right)
+
+console.log(Direction5.up) // ----> 23
+console.log(Direction5.down) // ---->24
+console.log(Direction5.left) // ---->234
+console.log(Direction5.right) // ---->235
