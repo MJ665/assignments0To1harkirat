@@ -272,6 +272,10 @@ const e = new Employee ("harkirat",22)
 console.log(e.name)
 e.greet("hello......")
 
+interface User6 {age:number}
+interface Manager6 extends User6 {name:number}
+interface Employee6 extends User6 {name:string}
+
 // interview question
 // what is difference between interfaces class and types in type script
 
