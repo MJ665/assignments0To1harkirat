@@ -907,3 +907,103 @@ console.log(calc.add(10, 5));
 
 
 // List of topic in week 10 
+// ab week 10 ke baad se feeling aana chaloo hoga 🤩🤩🤩🤩 uff week 10 ke baad aane wala majaaaaa
+
+
+// topics ke naam to dekh
+// 0.0.1 | Cohort 1 Postgres video
+
+// 10.0.2 | Cohort 1 Prisma Video
+
+// 10.1 | Cohort 2 Postgres
+
+// 10.2 | Cohort 2 Prisma
+// 11.1 | Serverless Fns
+
+
+// 11.2 | AWS Deployments
+
+// 11.3 | Certificate management and AWS Revision
+// 12.1 | Deploying Frontends on AWS
+
+// 12.2 | Advance Typescript APIs
+
+// Cohort 1 - Deploying npm packages, Intro to Monorepos
+
+// 12.3 | Actionable Docker
+
+// 12.4 | SQL Relationships and Joins
+
+
+// 12.5 | Prisma Recap, Relationships in Prisma
+
+// 12.6 | Connection pooling in serverless envs
+
+// 13.1 | Project #1
+
+// Week 13.2 | AMA
+
+// 13.3 | Backend of Medium
+
+// 13.4 | Frontend of Medium
+// 14.1 | Intro to NextJS
+
+// 14.2 | NextJS Backend
+
+// 14.3 | Next.js Backend (Offline video)
+// 15.1 | Docker Intro
+
+
+// 15.2 | Docker 2
+
+// 15.3 | docker-compose, push and exec
+
+// 15.4 | Bind mounts
+// 16.1 | Monorepo part 1
+
+
+// 16.2 | Monorepo part 2
+// 16.2.1 | Auth using cookies
+
+
+// 16.2.2 | NextAuth
+// 17.1 | PayTM Monorepo part 1
+
+
+// 17.2 | PayTM part-2
+
+// Week 18.1 | PayTM Part 3
+
+
+// Week 18.1.2 | PayTM Part 3 (cont.)
+
+// Week 18.2 | CI/CD
+// 19.0.1 | Middlewares in Next.js
+
+
+// 19.0.2 | CSR vs SSR vs SSG
+
+// 19.1 | Websockets and Advance backend comm
+
+// 19.2 | Redis, Pub subs and Queues
+// 20.1 | Orientation for 1-100
+
+
+// 20.2 | OpenAPI Spec Offline
+
+// 20.3 | OpenAPI Spec Class (Cohort 1)
+// Week 21 | DDoS, Rate limit
+
+
+// Week 21.2 | Singleton Pattern + Pub subs
+// 22.1 | Vertical scaling, scaling Node.js apps
+
+
+// 22.2 | Auto scaling Groups
+
+
+
+
+
+
+// uuuuuufffffff
