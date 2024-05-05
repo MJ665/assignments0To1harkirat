@@ -382,6 +382,10 @@ interface User4 {
 // Interfaces & types are almost similar but the types cannot be applied on the classes but interfacec can be applied on classes
 // Interface can be extended in class
 // Types we can do Union or intersection or and
+// Interface can extend but types cannot example
+interface User8 {age:number}
+interface Manager8 extends User6 {name:number}
+interface Employee8  extends User6 {name:string}
 
 type StringOrNumber = string | number;
 
@@ -452,3 +456,11 @@ console.log(filteredUsers([{
 }, ]));
 
 
+interface Manager7 {
+    name :string
+}
+type TechLead7 = {
+    id : Number
+}
+type BothTechLeadManager7  = Manager7 & TechLead7
+type OrTechLeadManager7  = Manager7 | TechLead7
