@@ -259,15 +259,15 @@ class Manager2 implements Person { // Line d
         console.log(`${phrase}.  ${this.name}`)
     }
 }
-class Manager3 implements Person { // Line e
-    name:string ;
-    age :number;
-    constructor(n:string, a:number){
-        this.name = n
-        this.age= a
-    }
+// class Manager3 implements Person { // Line e
+//     name:string ;
+//     age :number;
+//     constructor(n:string, a:number){
+//         this.name = n
+//         this.age= a
+//     }
 
-}
+// }
 const e = new Employee ("harkirat",22)
 console.log(e.name)
 e.greet("hello......")
@@ -330,3 +330,121 @@ src/index.ts:262:7 - error TS2420: Class 'Manager3' incorrectly implements inter
 }
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TYPES in TS
+
+
+
+
+type User3 = {
+    firstName :string,
+    lastName :string,
+    age :Number
+}
+
+interface User4 {
+    firstName :string,
+    lastName :string,
+    age :Number
+}
+
+
+// Interfaces & types are almost similar but the types cannot be applied on the classes but interfacec can be applied on classes
+// Interface can be extended in class
+// Types we can do Union or intersection or and
+
+type StringOrNumber = string | number;
+
+function printId(id: StringOrNumber) {
+  console.log(`ID: ${id}`);
+}
+
+printId(101); // ID: 101
+printId("202"); // ID: 202
+
+
+type Employee5 = {
+    name: string;
+    startDate: Date;
+  };
+  
+  type Manager5 = {
+    name: string;
+    department: string;
+  };
+  
+  type TeamLead5 = Employee5 & Manager5;
+  
+  const teamLead5: TeamLead5 = {
+    name: "harkirat",
+    startDate: new Date(),
+    department: "Software developer"
+  };
+  
+
+
+
+
+
+
+  function maxValue(arr: number[]) {
+    let max = 0;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] > max) {
+            max = arr[i]
+        }
+    }
+    return max;
+}
+
+console.log(maxValue([1, 2, 3]));
+
+
+
+interface User {
+	firstName: string;
+	lastName: string;
+	age: number;
+}
+
+function filteredUsers(users: User[]) {
+    return users.filter(x => x.age >= 18);
+}
+
+console.log(filteredUsers([{
+    firstName: "harkirat",
+    lastName: "Singh",
+    age: 21
+}, {
+    firstName: "Raman",
+    lastName: "Singh",
+    age: 16
+}, ]));
+
+
