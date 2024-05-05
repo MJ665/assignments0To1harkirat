@@ -493,3 +493,106 @@ duplicates in any file inside the folder containing the tsconfig shouldnt have s
 
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ENUMS
+
+// type KeyInput = "up"|"down"|"left"|"right"
+// function doSomething2(keyPressed:KeyInput){
+//     // do something
+// }
+
+// doSomething2("up")
+// doSomething2("down")
+// doSomething2("right")
+
+
+
+
+// when we know that there are limited set of inputs for that particular function then we use enum
+
+enum Direction { "up","down","left","right"}
+function doSomething2(keyPressed:Direction){
+    // do something
+}
+
+doSomething2(Direction.up)
+doSomething2(Direction.down)
+doSomething2(Direction.left)
+doSomething2(Direction.right)
+
+console.log(Direction.up) // ----> 0
+console.log(Direction.down) // ----> 1
+console.log(Direction.left) // ----> 2
+console.log(Direction.right) // ----> 3
+// output:
+// 0
+// 1
+// 2
+// 3
+
+
+
+
+// Enum is not the concept of Java Scripit 
+// why does the console.log output is like 0 1 2 3 
+// and so the question what does it become when we transpile it into javascript
+// our JS code gets transpilie like this
+
+/* JS Code after transpiiilation from TS to JS
+var Direction;
+(function (Direction) {
+    Direction[Direction["up"] = 0] = "up";
+    Direction[Direction["down"] = 1] = "down";
+    Direction[Direction["left"] = 2] = "left";
+    Direction[Direction["right"] = 3] = "right";
+})(Direction || (Direction = {}));
+function doSomething2(keyPressed) {
+    // do something
+}
+doSomething2(Direction.up);
+doSomething2(Direction.down);
+doSomething2(Direction.left);
+doSomething2(Direction.right);
+console.log(Direction.up); // ----> 0
+console.log(Direction.down); // ----> 1
+console.log(Direction.left); // ----> 2
+console.log(Direction.right); // ----> 3
+// output:
+// 0
+// 1
+// 2
+// 3
+*/
+
+
+
+
