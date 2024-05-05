@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@types/pg": "^8.11.6",
+    "dotenv": "^16.4.5",
     "pg": "^8.11.5"
   }
 }
