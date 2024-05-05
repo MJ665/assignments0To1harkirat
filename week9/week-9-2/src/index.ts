@@ -464,3 +464,32 @@ type TechLead7 = {
 }
 type BothTechLeadManager7  = Manager7 & TechLead7
 type OrTechLeadManager7  = Manager7 | TechLead7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+if we have a function with the same name 
+or exactly same function in two different files we get an error
+why?
+
+to compiler looks at multiple files 
+duplicates in any file inside the folder containing the tsconfig shouldnt have same name
+
+
+*/
