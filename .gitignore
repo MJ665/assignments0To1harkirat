@@ -1,4 +1,7 @@
-node_modules
-week4/week-4-2/reactFoundation/node_modules
+# Ignore node_modules in any directory
+node_modules/
 
-week10/week-10-0-1/.env
+# Ignore environment files
+.env
+# Ignore everything in the week-10-0-1/dist directory
+week10/week-10-0-1/dist/
