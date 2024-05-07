@@ -15,7 +15,7 @@ function main() {
         try {
             const client = (0, utils_1.getClient)();
             const joinQuery = `
-    select u.id, u.username, u.email, a.title, a.description, a.id, a.done 
+    select u.id, u.username, u.email,u.password, a.title, a.description, a.id, a.done 
     from users u join todos a on u.id = a.userId
     where u.email = $1;
     `;
