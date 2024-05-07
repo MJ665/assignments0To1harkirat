@@ -12,27 +12,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const utils_1 = require("./utils");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const userQuery = `
-create table  if not exists users (
-    id serial primary key,
-    username varchar(50) unique not null,
-    email varchar(250) unique not null,
-    password varchar (250) not null,
-    created_at timestamp with the zone default CURRENT_TIMESTAMP
-);
-`;
-        const client = yield (0, utils_1.getClient)();
-        yield client.query(userQuery);
-        const todoQuery = `
-create table  if not exists todos (
-    id serial primary key ,
-    title varchar (250) unique not null,
-    description varchar (250) ,
-    userId integer references users(id),
-    done boolean default false
-);`;
-        yield client.query(todoQuery);
-        console.log("the creation of the table was successfull");
+        const client = (0, utils_1.getClient)();
+        const userQuery = `insert into users (username , email, password) values ($1, $2 , $3) returning id`;
+        const userData = ["hariOm", "hariom@gmail.com", "hariom"];
+        const user = (yield client).query(userQuery, userData);
+        const todoQuery = `insert into todos (title , description,userId) values ($1,$2,$3) returning id;`;
+        const todoData = ["hariOm's title", "hariOm's descriptiion'", user];
+        const todo = (yield client).query(todoQuery, todoData);
+        console.log("the data insertion successful");
     });
 }
 main();
