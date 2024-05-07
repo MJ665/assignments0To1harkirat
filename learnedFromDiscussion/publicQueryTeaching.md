@@ -247,6 +247,9 @@ differnece btw join view and aggregation of mongo
 <br />
 how to audit smart contract
 <br />
+version control in database
+
+liquid base
 <br />
 <br />
 <br />
