@@ -7,7 +7,7 @@ async function main() {
     console.log(user)
 
 
-    console.log("the get data successful " + user.rows )}catch(err){console.error(err)}
+    console.log("the get data successful " + user.rows[0] )}catch(err){console.error(err)}
 }
 main ()
 
