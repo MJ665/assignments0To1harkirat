@@ -7,7 +7,7 @@ create table  if not exists users (
     username varchar(50) unique not null,
     email varchar(250) unique not null,
     password varchar (250) not null,
-    created_at timestamp with the zone default CURRENT_TIMESTAMP
+    created_at timestamp with time zone default CURRENT_TIMESTAMP
 );
 `
 const client = await getClient()
