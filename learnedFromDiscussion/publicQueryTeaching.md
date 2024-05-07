@@ -243,7 +243,9 @@ hwo to properly use null and undefined which can let to big problem
 <br />
 rectangle app for mac to resize windows
 <br />
+differnece btw join view and aggregation of mongo
 <br />
+how to audit smart contract
 <br />
 <br />
 <br />
