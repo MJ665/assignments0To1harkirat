@@ -13,7 +13,7 @@ const utils_1 = require("./utils");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const client = (0, utils_1.getClient)();
-        const userQuery = `insert into users (username , email, password) values ($1, $2 , $3) returning id`;
+        const userQuery = `insert into users (username , email, password) values ($1, $2 , $3) returning users(id)`;
         const userData = ["hariOm", "hariom@gmail.com", "hariom"];
         const user = (yield client).query(userQuery, userData);
         const todoQuery = `insert into todos (title , description,userId) values ($1,$2,$3) returning id;`;
