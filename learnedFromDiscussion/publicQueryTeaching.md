@@ -205,3 +205,43 @@ microvm
 
 dynamo db
 
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+what is migratioin 
+<br />
+<br />
+what is indexign in database
+<br />
+what is portals in react
+<br />
+how can we apply ovast security standards in our express app
+<br />
+what algorithm or indexing thing to choose in which case in database design
+
+<br />
+MVC old model of making an application
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
