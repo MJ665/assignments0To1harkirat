@@ -239,7 +239,9 @@ MVC old model of making an application
 <br />
 why does join become very expensive operation
 <br />
+hwo to properly use null and undefined which can let to big problem
 <br />
+rectangle app for mac to resize windows
 <br />
 <br />
 <br />
