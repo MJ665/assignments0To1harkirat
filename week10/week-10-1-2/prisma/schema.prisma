@@ -19,16 +19,17 @@ model User {
   email String @unique
   password String
   firstName String 
-  lastName String?
-  todo Todo []
+  lastName String? // optional
+  todo Todo [] // this is to show todo table is dependent on user
 }
 model Todo {
   id Int @id @default( autoincrement())
   title String 
   description String?
   done Boolean
-  userId Int
-  authorUser User @relation(fields: [userId],references: [id])
+  userId Int // we have defined the userId but how it will get the value
+  authorUser User @relation(fields: [userId],references: [id]) // beacouse of this line it will get the value
+  // it is to show that the value in userId will get from the id of users
 
 
 }
