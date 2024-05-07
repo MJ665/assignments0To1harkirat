@@ -237,6 +237,7 @@ what algorithm or indexing thing to choose in which case in database design
 <br />
 MVC old model of making an application
 <br />
+why does join become very expensive operation
 <br />
 <br />
 <br />
