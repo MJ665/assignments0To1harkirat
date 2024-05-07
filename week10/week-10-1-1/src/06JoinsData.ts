@@ -7,8 +7,11 @@ async function main() {
     where u.email = $1;
     `
     const joinData = ["hariom@gmail.com"]
+    const result= await( await client).query(joinQuery,joinData)
     console.log("the get data successful "  )
-   await( await client).query(joinQuery,joinData)
+    result.rows.forEach(element => {
+        console.log(element)
+    });
    
 
 
