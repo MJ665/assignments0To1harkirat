@@ -4,8 +4,10 @@ async function main (){
 const userQuery = `
 create table  if not exists users (
     id serial primary key,
+    username varchar(50) unique not null,
     email varchar(250) unique not null,
-    password varchar (250) not null
+    password varchar (250) not null,
+    created_at timestamp with the zone default CURRENT_TIMESTAMP
 );
 `
 const client = await getClient()
