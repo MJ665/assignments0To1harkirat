@@ -13,7 +13,7 @@ const utils_1 = require("./utils");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
         const userQuery = `
-create table users if not exists  (
+create table  if not exists users (
     id serial primary key,
     email varchar(250) unique not null,
     password varchar (250) not null
@@ -22,7 +22,7 @@ create table users if not exists  (
         const client = yield (0, utils_1.getClient)();
         yield client.query(userQuery);
         const todoQuery = `
-create table todos if not exists (
+create table  if not exists todos (
     id serial primary key ,
     title varchar (250) unique not null,
     description varchar (250) ,
