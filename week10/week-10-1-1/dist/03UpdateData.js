@@ -14,7 +14,7 @@ function main() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const client = (0, utils_1.getClient)();
-            const userQuery = `update users set password $1 where email $2 `;
+            const userQuery = `update users set password = $1 where email $2 `;
             const userData = ["hariOmNewPassword", "hariom@gmail.com",];
             yield (yield client).query(userQuery, userData);
             console.log("the data update successful");
