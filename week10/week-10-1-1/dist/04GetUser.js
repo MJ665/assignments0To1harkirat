@@ -18,7 +18,7 @@ function main() {
             const userData = ["hariom@gmail.com"];
             const user = yield (yield client).query(userQuery, userData);
             console.log(user);
-            console.log("the get data successful " + user.rows);
+            console.log("the get data successful " + user.rows[0]);
         }
         catch (err) {
             console.error(err);
