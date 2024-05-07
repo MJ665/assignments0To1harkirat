@@ -20,8 +20,11 @@ function main() {
     where u.email = $1;
     `;
             const joinData = ["hariom@gmail.com"];
+            const result = yield (yield client).query(joinQuery, joinData);
             console.log("the get data successful ");
-            yield (yield client).query(joinQuery, joinData);
+            result.rows.forEach(element => {
+                console.log(element);
+            });
         }
         catch (err) {
             console.error(err);
