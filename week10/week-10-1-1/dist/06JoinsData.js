@@ -20,9 +20,8 @@ function main() {
     where u.email = $1;
     `;
             const joinData = ["hariom@gmail.com"];
-            const user = yield (yield client).query(joinQuery, joinData);
-            console.log(user);
-            console.log("the get data successful " + user.rows[0]);
+            console.log("the get data successful ");
+            yield (yield client).query(joinQuery, joinData);
         }
         catch (err) {
             console.error(err);

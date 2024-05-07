@@ -7,11 +7,12 @@ async function main() {
     where u.email = $1;
     `
     const joinData = ["hariom@gmail.com"]
-    const user =await( await client).query(joinQuery,joinData)
-    console.log(user)
+    console.log("the get data successful "  )
+   await( await client).query(joinQuery,joinData)
+   
 
 
-    console.log("the get data successful " + user.rows[0] )}catch(err){console.error(err)}
+    }catch(err){console.error(err)}
 }
 main ()
 
