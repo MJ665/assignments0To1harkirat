@@ -16,8 +16,8 @@ export default {
 		console.log(request.body);
 		console.log(request.headers);
 		console.log(request.method)
-		var uri = request.url.replace(/^https:\/\/.*?\//gi,"/")
-		console.log(uri)
+		// var uri = request.url.replace(/^https:\/\/.*?\//gi,"/")
+		// console.log(uri)
 		
 		if (request.method === "GET") {
 			return Response.json({
