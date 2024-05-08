@@ -251,5 +251,19 @@ version control in database
 
 liquid base
 <br />
+
+servers pricing
+
+per month server price 
+
+pay as you go price
+
+serverless price function
+
+worm pool of server
+
+
+
+
 <br />
 <br />
