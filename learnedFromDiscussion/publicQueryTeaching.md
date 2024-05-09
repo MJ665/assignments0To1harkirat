@@ -286,6 +286,22 @@ fastify
 <br />
 <br />
 <br />
+
+we cannot go to dashboard and see all the server logs hence in the real world we use log stash tools  data dog ,sentri is one of the tool
+<br />
+<br />
+<br />
+<br />
+
+please make a video or code along on stream on web socket not socket . io for mern stack app
+
+every time i migrate a fresh project via prisma i had to delete earlier data beacouse of drift detected 
+
+cant we connect 2 projects to 1 postgres database via prisma like we used to do mongoose via creating seperate table for seperate projects
+
+how does prisma earn
+<br />
+<br />
 <br />
 <br />
 <br />
