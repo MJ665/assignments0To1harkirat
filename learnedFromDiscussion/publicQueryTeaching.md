@@ -444,7 +444,7 @@ but coackroach db helps in scalling easily
 
 graph database neo4j recomendation engine fraud detection
 
-fauna db multimodel database  when we dont care about data modelling schema and many more with giving input with graph ql we can it automatically creates collection to store the data and an index to use the data it is automatically checking what it have to apply which database paradime it has to apply like graph relational collection document etc it is acid complaint 
+fauna db multimodel database  when we dont care about data modelling schema and many more with giving input with graph ql we can it automatically creates collection to store the data and an index to use the data it is automatically checking what it have to apply which database paradime it has to apply like graph relational collection document etc it is acid complaint  ex twitter engineer
 
 time series database 
 
@@ -494,7 +494,112 @@ edge db empowred by postgres and graph database
 
 
 
-surreal db
+surreal db 
+
+fauna db 
+
+
+memgraph for real time graph database which can be replacement for neo4j 
+
+keydb 1 million on single node in 1 second
+
+meili search is an opensource in rust it is not primary database but we can duplicate the data and quickly search
+
+
+minds db which embeds popular ML models it helps on ML ops
+
+laravel it was a MVC model(db) view(user blace) and controler framwork for making server side 
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+
+robo maker 
+
+iot core
+
+ground station
+
+bracket quantum computer
+
+elastic compute clout ec2
+
+elastic load balancing
+
+cloud watch for logs and matricies
+
+auto scale for ec2 machines
+
+elastic beanstalk
+
+light sail
+
+lamda for serverless functions
+
+serverless repo to find prebuild lamda function
+
+outpost to see aws apis
+
+snow for interact with as a scientist from arctic pole aws from  so snow is a machine which can run in non internet environment datacenters
+
+container registry for uploading docker image
+
+container service for connecting the docker with ec2 and load balancer
+
+kubernetes service to keep watch on docker container
+
+fargate for container in more automated way like server less function
+
+app runner when we point on container image and it automaticly deploy the ec2 machine or serverless functio
+
+
+s2 simple storage service any type of static
+
+
+if we donot often we can archive them in glacier high latency but low cost
+
+
+block storage fast and high throughput
+
+elastic file system for high performant 
+
+simple DB a general purpose no sql db
+
+dynamo db inexpensive and horizontal scale but not porpeprly have joins
+
+
+document DB similar to mongo db
+
+elastic search like elastic search
+
+rds amazon relational database service
+
+aurora its own  DB 5x faster than my sql but low cost also have serverless option so that it can scale
+
+neptune for graph database
+
+elastich cache like redis inmomery database
+
+timestream time series l;ike stock marcker
+
+quantum ledger db immutable set of cryptoographically signed transaction 
+
+redshift which is a database wearhouse to dump multiple data sources it is sql
+
+lake formation for large amount of unstructured data for data lake
+
+kinesis for real time data to cappture realtime stream to use in application
+
+map reduce similar to apache spark
+
+msk similar to kafka 
+
+glue ETL  operation
 
 
 
@@ -503,16 +608,13 @@ surreal db
 
 
 
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
+
+
+
+
+
+
+
 <br />
 <br />
 <br />
