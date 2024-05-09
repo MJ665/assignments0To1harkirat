@@ -410,6 +410,111 @@ Ensure the RBAC implementation is secure and that users cannot bypass role check
 - Implement additional security measures (like input validation and rate limiting) to prevent security vulnerabilities.
 
 With these steps, you can implement a basic RBAC system in Node.js to manage access to different parts of your application based on user roles and permissions. If you have further questions or need additional guidance, I'm here to help.
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+## fireship data base video
+
+redis key value store db
+
+juno db key value store pay pal
+
+message queue  pubs subs
+
+wide column database casandra cql schema less easy to replicate data across multiple nodes frequent writes but in frequent updates and reads
+
+
+document oriented database mongo firestore not ideal for graphs like structure like social network
+
+sql server my sql postgres relational database 
+
+relational are acid complaint meanse atomicity consistency isolation and durablity beacouse of acid propeperty it is tough to scale vertically and horizontally
+
+even if there is a hardware failure the transaction will be compelete in relational database
+
+but coackroach db helps in scalling easily
+
+
+graph database neo4j recomendation engine fraud detection
+
+fauna db multimodel database  when we dont care about data modelling schema and many more with giving input with graph ql we can it automatically creates collection to store the data and an index to use the data it is automatically checking what it have to apply which database paradime it has to apply like graph relational collection document etc it is acid complaint 
+
+time series database 
+
+
+
+
+
+
+
+
+
+surreal db relational database aciid realtime full text based search  events serverless embeded  graph relational multi tanant temporal schema less schema full can scale horizontally and can run on single node on ram or on disk and fast it dont have joins but have graph connection and record links RUST
+
+data wirehouses
+
+           
+
+elastic search for search engine database also used in datalakes
+
+
+
+
+algolia solr meili search
+
+
+`
+neon db postgres serverless written in rust also supports branching  which was inspired from dolt
+
+
+dolt db git and postgress
+
+
+coackroach db postgress build with google build by ex google employee
+
+cloud flare d1 made with sql lite which runs on the edge tansaction will not work but developers can write stored procedure in JS and which are snippit of code that direct run in database
+
+cloudflasre has  kv key value r2 for object storage
+
+
+xata postgres + elastic search it makes data like spread sheet beacouse of full text search we do not have to duplicate the data in algolia
+
+
+8 base graph ql appi for  relational database it has a builder which help to make the frontend and it is a backend as a service which can also build your frontend
+
+
+edge db empowred by postgres and graph database
+
+
+
+surreal db
+
+
+
+
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
 <br />
