@@ -267,3 +267,37 @@ worm pool of server
 
 <br />
 <br />
+<br />
+<br />
+<br />
+<br />
+<br />
+why we always do await on json ()
+
+after the initial fetch call only the headers have been read so to parse the body as json fiirst the body data has to be read from the incoming stream and since reading from the TCP stream is asynchronous the json operaion ends up asynchronous
+
+<br />
+bob martins clean architecture model
+
+fastify
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
