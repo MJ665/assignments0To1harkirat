@@ -313,7 +313,103 @@ does not give error
 type widening & narrowing in TS good thing to know
 <br />
 <br />
-RABC in node js
+## RABC in node js
+
+RBAC (Role-Based Access Control) is a method for controlling user permissions based on roles within a system. In Node.js, implementing RBAC involves defining roles, assigning permissions to those roles, and then associating users with roles to manage their access to specific resources or operations.
+
+Here's a general approach to implementing RBAC in a Node.js application:
+
+### Step 1: Define Roles and Permissions
+Roles represent different levels of access, while permissions are the specific actions that can be performed. Define a list of roles and their associated permissions.
+
+```javascript
+const roles = {
+  admin: {
+    can: ["create_user", "delete_user", "update_user", "read_user"],
+  },
+  editor: {
+    can: ["update_user", "read_user"],
+  },
+  viewer: {
+    can: ["read_user"],
+  },
+};
+```
+
+### Step 2: Assign Roles to Users
+Assign a specific role to each user. This is typically stored in a database or an in-memory structure if the application is simple.
+
+```javascript
+const users = {
+  user1: { role: "admin" },
+  user2: { role: "editor" },
+  user3: { role: "viewer" },
+};
+```
+
+### Step 3: Check User Permissions
+Implement a function that checks if a user has a specific permission based on their role.
+
+```javascript
+function canPerform(userId, permission) {
+  const user = users[userId];
+  if (!user) {
+    throw new Error("User not found");
+  }
+
+  const role = roles[user.role];
+  if (!role) {
+    throw new Error("Role not found");
+  }
+
+  return role.can.includes(permission);
+}
+```
+
+### Step 4: Integrate RBAC into Middleware
+Use middleware to enforce RBAC rules for specific routes in your Node.js application. This example uses Express.js to protect a route that requires a certain permission.
+
+```javascript
+const express = require("express");
+const app = express();
+
+// Middleware to enforce RBAC
+function requirePermission(permission) {
+  return (req, res, next) => {
+    const userId = req.headers["user-id"]; // Or however you identify users
+
+    try {
+      if (!canPerform(userId, permission)) {
+        return res.status(403).send("Forbidden");
+      }
+      next();
+    } catch (error) {
+      return res.status(400).send(error.message);
+    }
+  };
+}
+
+// Example protected route
+app.put("/user/:id", requirePermission("update_user"), (req, res) => {
+  res.send("User updated");
+});
+
+// Example non-protected route
+app.get("/user/:id", (req, res) => {
+  res.send("User data");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
+```
+
+### Step 5: Secure Your Application
+Ensure the RBAC implementation is secure and that users cannot bypass role checks. It's crucial to:
+- Use secure methods for user authentication and authorization (e.g., JWT, OAuth).
+- Implement additional security measures (like input validation and rate limiting) to prevent security vulnerabilities.
+
+With these steps, you can implement a basic RBAC system in Node.js to manage access to different parts of your application based on user roles and permissions. If you have further questions or need additional guidance, I'm here to help.
 <br />
 <br />
 <br />
