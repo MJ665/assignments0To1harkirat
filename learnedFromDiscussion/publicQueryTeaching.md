@@ -303,8 +303,17 @@ how does prisma earn
 <br />
 <br />
 <br />
+
+void is not a strict type in TS so
+const hii: ()=>void = ()=>{
+  return hii
+} 
+does not give error
+
+type widening & narrowing in TS good thing to know
 <br />
 <br />
+RABC in node js
 <br />
 <br />
 <br />
