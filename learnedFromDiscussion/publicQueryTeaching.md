@@ -601,6 +601,31 @@ msk similar to kafka
 
 glue ETL  operation
 
+data exchange for ML to purchase and subscibe to data from third party souces
+
+sagemaker to make ML data model
+
+rekognition for image analysis
+
+LEX for convosesational bot to make like alexa
+
+deep racer to test with the ML racing car
+
+IAM for security for access of aws account
+
+coognito to properly login with variety of authentication and session option
+
+simple notification service SNS
+
+simple email service SES
+
+cloud formation to make template based 
+
+amplify sdks to connect infrastructre 
+
+budgets application to properly plan the budget
+
+
 
 
 
