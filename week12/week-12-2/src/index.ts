@@ -148,10 +148,17 @@ a[0]=23 // we get no error
 // }
 
 
+// record is a method of the typescript so the javascrips does not understand it
+// type Users = Record <string, {age :number; name :string}>
+// const users:Users = { 
+//     "ras@qd1":{age :21, name :"harkirat"},
+//     "ras@qd2":{age :22, name :"harkirat2"},
 
-type Users = Record <string, {age :number; name :string}>
-const users:Users = { 
-    "ras@qd1":{age :21, name :"harkirat"},
-    "ras@qd2":{age :22, name :"harkirat2"},
+// }
 
-}
+
+
+// map is the concept of the javascript and it is like we use in c++
+
+const users = new Map ()
+users.set(    "ras@qd1",{age :21, name :"harkirat"})
