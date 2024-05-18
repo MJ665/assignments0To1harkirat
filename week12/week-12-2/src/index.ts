@@ -160,5 +160,33 @@ a[0]=23 // we get no error
 
 // map is the concept of the javascript and it is like we use in c++
 
-const users = new Map ()
-users.set(    "ras@qd1",{age :21, name :"harkirat"})
+type User = {
+    name :string
+    age : number 
+    email:string
+}
+const users = new Map<string , User> ()
+users.set(    "ras@qd1",{age :21, name :"harkirat", email :"newEmail@email.com"
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+type EventType = 'click'|'scroll'|'mousemove'
+type ExcludeEvent = Exclude<EventType , "scroll">   // ' click ' | ' mousemove '
+const handleEvent  = (event :ExcludeEvent )=>{
+    console.log(`handeling event : ${event }`)
+}
+handleEvent ("click")
