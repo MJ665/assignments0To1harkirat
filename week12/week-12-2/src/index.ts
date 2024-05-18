@@ -160,14 +160,14 @@ a[0]=23 // we get no error
 
 // map is the concept of the javascript and it is like we use in c++
 
-type User = {
-    name :string
-    age : number 
-    email:string
-}
-const users = new Map<string , User> ()
-users.set(    "ras@qd1",{age :21, name :"harkirat", email :"newEmail@email.com"
-})
+// type User = {
+//     name :string
+//     age : number 
+//     email:string
+// }
+// const users = new Map<string , User> ()
+// users.set(    "ras@qd1",{age :21, name :"harkirat", email :"newEmail@email.com"
+// })
 
 
 
@@ -184,9 +184,90 @@ users.set(    "ras@qd1",{age :21, name :"harkirat", email :"newEmail@email.com"
 
 
 
-type EventType = 'click'|'scroll'|'mousemove'
-type ExcludeEvent = Exclude<EventType , "scroll">   // ' click ' | ' mousemove '
-const handleEvent  = (event :ExcludeEvent )=>{
-    console.log(`handeling event : ${event }`)
-}
-handleEvent ("click")
+// type EventType = 'click'|'scroll'|'mousemove'
+// type ExcludeEvent = Exclude<EventType , "scroll">   // ' click ' | ' mousemove '
+// const handleEvent  = (event :ExcludeEvent )=>{
+//     console.log(`handeling event : ${event }`)
+// }
+// handleEvent ("click")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 6] Type Inferences In Zod
+// Type inference in Zod is a powerful feature that allows TypeScript to automatically determine the type of data validated by a Zod schema. This capability is particularly useful in applications where runtime validation coincides with compile-time type safety, ensuring that your code not only runs correctly but is also correctly typed according to your Zod schemas.
+// How Type Inference Works in Zod
+// Zod schemas define the shape and constraints of your data at runtime. When you use Zod with TypeScript, you can leverage Zod's type inference to automatically generate TypeScript types based on your Zod schemas. This means you don't have to manually define TypeScript interfaces or types that replicate your Zod schema definitions, reducing redundancy and potential for error.
+// Example: Type Inference with Zod in an Express App
+// Consider an Express application where you want to validate and update a user's profile information. You define a Zod schema for the profile update request body:
+
+
+
+
+
+
+
+
+
+
+
+// In this example, `userProfileSchema.safeParse(req.body)` validates the request body against the `userProfileSchema`. The `safeParse` method returns an object that includes a `success` boolean and, on success, a `data` property containing the validated data.
+
+// ### Assigning a Type to `updateBody`
+
+// Thanks to Zod's type inference, the type of `updateBody` is automatically inferred to be:
+
+// {
+//     name: string;
+//     email: string;
+//     age?: number;
+//   }
+
+
+
+
+
+
+//   This inferred type is derived directly from the `userProfileSchema` definition. If you try to access a property on `updateBody` that isn't defined in the schema, TypeScript will raise a compile-time error, providing an additional layer of type safety.
+
+//   ### Benefits of Type Inference in Zod
+  
+//   1. **Reduced Boilerplate**: You don't need to manually define TypeScript types that mirror your Zod schemas.
+//   2. **Type Safety**: Ensures that your data conforms to the specified schema both at runtime (through validation) and at compile-time (through type checking).
+//   3. **Developer Productivity**: Type inference, combined with Zod's expressive API for defining schemas, makes it easier to write, read, and maintain your validation logic and related type definitions.
+  
+//   > Type inference in Zod bridges the gap between runtime validation and compile-time type safety in TypeScript applications. By automatically generating TypeScript types from Zod schemas, Zod helps ensure that your data validation logic is both correct and type-safe, enhancing the reliability and maintainability of your code.
+//   >
