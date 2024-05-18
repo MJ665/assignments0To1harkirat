@@ -235,9 +235,31 @@ a[0]=23 // we get no error
 // Consider an Express application where you want to validate and update a user's profile information. You define a Zod schema for the profile update request body:
 
 
+import { z}from "zod"
+import express from "express "
+const app = express()
+app.use(express.json ())
+const userPorfileSchema = z.object({
+    name :z.string().min(1,{message:"name cannot be empty"}),
+    email :z.string().email({message:"name cannot be empty"}),
+    age :z.number().min(18,{message:"you have to be an adult"})
+})
 
+app.put ("/user", (req,res)=>{
+    const result = userPorfileSchema . safeParse(req.body)
+if(!result.success){
+    res.status (400).json({error:result.error})
+    return
+}
 
+type finalUserSchema = z.infer <typeof userPorfileSchema>
 
+const updateBody:finalUserSchema = result . data 
+res.json({
+    message:"User Updated",
+    updateBody
+})
+})
 
 
 
