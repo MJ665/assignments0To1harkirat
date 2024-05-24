@@ -10,17 +10,22 @@ import { PrismaClient} from "@prisma/client"
 export async function POST (req:NextRequest)
 
 {
-    
+    try{
     const body = await req.json()
-    client.user.create({
+    await client.user.create({
         data :{
             email:body.username,
-            name:body.password
+            password:body.pass
         }
     })
+    const users = await client.user.findMany({})
     // console.log(req.headers.get("authorization"))
     // console.log(req.nextUrl.searchParams.get("name"))
-    return (NextResponse.json ({
+    return NextResponse.json ({
+        users:users,
 body :body,
  msg :"here is your responce"
-}))}
+})}
+catch(err){
+return NextResponse.json({msg:"we got an error while pusing the code" ,err : err})}
+}
