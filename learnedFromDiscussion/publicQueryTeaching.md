@@ -642,7 +642,11 @@ budgets application to properly plan the budget
 
 <br />
 <br />
+what is hydration
 <br />
+
+how the crawlers google bot or other will make the website idex if the applcation have the loader at the first render in the next js app and not directly hydrating the website with the data
+
 <br />
 <br />
 <br />
