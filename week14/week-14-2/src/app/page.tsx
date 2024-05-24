@@ -77,11 +77,11 @@ async function getUserDetails() {
 
     setTimeout((r),5000)
   }) 
-  // const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details")
+  const response = await axios.get("https://week-13-offline.kirattechnologies.workers.dev/api/v1/user/details")
   
   
   
-   const response = await axios.get("http://localhost:3000/api/user")
+  //  const response = await axios.get("http://localhost:3000/api/user")
 
 /* to make it to call our own backend api route folder 
 

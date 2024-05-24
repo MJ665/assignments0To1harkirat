@@ -659,8 +659,10 @@ for exam hkirats website is static initaily beacouse he dont initialize new couo
 <br />
 <br />
 <br />
+if we are diploying on the clud flare worker then we have to get a pooled connection from the prisma accelerate
 <br />
 <br />
+if we have to diploy next js application  on the vercel or any other edge network then we have to get a pooled connection from the prisma accelerate of the neon edge
 <br />
 <br />
 <br />
