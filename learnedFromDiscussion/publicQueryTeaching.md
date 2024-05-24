@@ -644,11 +644,18 @@ budgets application to properly plan the budget
 <br />
 what is hydration
 <br />
+<br />
+<br />
 
 how the crawlers google bot or other will make the website idex if the applcation have the loader at the first render in the next js app and not directly hydrating the website with the data
 
 <br />
 <br />
+ANSWER :
+
+what do you compromise the loader or the seo so what we can do is if there is some thing which we dont add very often so we make that page a static page hence we dont have to add the loader on that 
+
+for exam hkirats website is static initaily beacouse he dont initialize new couorses daily
 <br />
 <br />
 <br />
