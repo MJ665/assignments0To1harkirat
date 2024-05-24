@@ -665,5 +665,33 @@ if we are diploying on the clud flare worker then we have to get a pooled connec
 if we have to diploy next js application  on the vercel or any other edge network then we have to get a pooled connection from the prisma accelerate of the neon edge
 <br />
 <br />
+bhaiya i have deployed that todos application of the azure in a vm and run that code by pm2 but while i am using the link to navigatte it that is
+
+
+when i navigate to it in browser that thous me not secure
+
+how to make it secure while the dns isis same for the code and also i had added the port 443 in the in bound reule also 
+<br />
+<br />
+<br />
+cert bot for ssl certificate management
+<br />
+<br />
+<br />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <br />
 <br />
