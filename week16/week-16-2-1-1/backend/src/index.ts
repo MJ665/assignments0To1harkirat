@@ -3,6 +3,7 @@ import cookieParser from "cookie-parser";
 import cors from "cors";
 import jwt, { JwtPayload } from "jsonwebtoken";
 import path from "path";
+import { DiagnosticCategory } from "typescript";
 
 const JWT_SECRET = "test123";
 
@@ -48,3 +49,4 @@ app.get("/", (req, res) => {
 })
 
 app.listen(3000);
+
