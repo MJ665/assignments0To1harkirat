@@ -66,8 +66,16 @@ const handler = NextAuth({
         },
         async authorize(credentials: any) {
             
+            const username = credentials . username
+            const password = credentials . password
+            console.log(credentials)
+            // const user = await prisma.user.findOned ({where:{email:username, password :password}})
+
+            // if we return null then it will just throw error
+            // return null
+            //Sign in failed. Check the details you provided are correct.
             return {
-                id: "user1"
+                id: "user1",name:"harkirat singh ", email:"harkirat@gmail.com"
             };
         },
       })
