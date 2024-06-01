@@ -5,3 +5,5 @@ node_modules/
 .env
 # Ignore everything in the week-10-0-1/dist directory
 week10/week-10-0-1/dist/
+
+.DS_Store
