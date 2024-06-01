@@ -3,12 +3,18 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
+import GithubProvider from "next-auth/providers/github";
+import { pages } from "next/dist/build/templates/app-page";
 
 export const NEXT_AUTH=    {
         providers: [
             GoogleProvider({
                 clientId:process.env.GOOGLE_CLIENTID || "",
                 clientSecret:process.env.GOOGLE_SECRET || ""
+            }),
+            GithubProvider({
+                clientId:process.env.GITHUB_CLIENTID || "",
+                clientSecret:process.env.GITHUB_SECRET || ""
             }),
           CredentialsProvider({
             name: 'Credentials',
@@ -62,5 +68,8 @@ export const NEXT_AUTH=    {
               }
               // with use of session our frontend get the access of the id but still our backend code we are not getting the access of the id 
       
+            },
+            pages:{
+                signIn :"/signin"
             }
           }
