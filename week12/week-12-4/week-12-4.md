@@ -1,0 +1,1 @@
+this is SQL video on relationships and joins
