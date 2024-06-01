@@ -48,6 +48,14 @@ export default function Appbar() {
 <br />
 <br />
       {JSON.stringify(session)}
+      <br></br>
+      <br></br>this is a client side component
+      <br></br>
+      <br></br>the use session comes from next-auth/react so we cant really use the use session hook in server side component so we will use get server session
+
+      <br></br>
+      <br></br>
+      with this we can see the user details in the component
     </div>
 
   );
