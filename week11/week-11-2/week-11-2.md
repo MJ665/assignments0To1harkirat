@@ -28,7 +28,7 @@ events {
 http {
 	server {
     listen 80;
-    server_name be1.100xdevs.com;
+    server_name ec2-13-233-244-202.ap-south-1.compute.amazonaws.com;
 
     location / {
         proxy_pass http://localhost:8080;
