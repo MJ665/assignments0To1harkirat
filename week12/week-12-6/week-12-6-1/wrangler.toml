@@ -4,6 +4,11 @@ main = "src/index.ts"
 compatibility_date = "2024-06-05"
 compatibility_flags = ["nodejs_compat"]
 
+
+
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMWU0N2ZlZmYtNDc0Mi00MTdkLTk3ZTgtMzRhMzU0NmZiNzY1IiwidGVuYW50X2lkIjoiMGNmMWJmYzgwMGZkMjI4NmY4YjRiMDI1ZmEzMGU1OWJhZTc2NTAyZWNkNmMzMjc3MzRiOWQ3N2EyMjM4MjJjNCIsImludGVybmFsX3NlY3JldCI6IjY5ZDZiYjdkLWY1MjYtNDY3Yy1iNTdmLWYwMWNhMjJlY2FiYiJ9.kWKKYbjmNQ0aA8McO0prFUnyL7Yyipz70-SAplbj3ts"
+
+
 # Automatically place your workloads in an optimal location to minimize latency.
 # If you are running back-end logic in a Worker, running it closer to your back-end infrastructure
 # rather than the end user may result in better performance.
@@ -106,3 +111,6 @@ compatibility_flags = ["nodejs_compat"]
 # [[vectorize]]
 # binding = "MY_INDEX"
 # index_name = "my-index"
+
+
+
