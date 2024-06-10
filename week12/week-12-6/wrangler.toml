@@ -1,6 +1,11 @@
 name = "week-12-6"
 compatibility_date = "2023-12-01"
 
+[vars]
+
+DATABASE_URL="prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiMWU0N2ZlZmYtNDc0Mi00MTdkLTk3ZTgtMzRhMzU0NmZiNzY1IiwidGVuYW50X2lkIjoiMGNmMWJmYzgwMGZkMjI4NmY4YjRiMDI1ZmEzMGU1OWJhZTc2NTAyZWNkNmMzMjc3MzRiOWQ3N2EyMjM4MjJjNCIsImludGVybmFsX3NlY3JldCI6IjY5ZDZiYjdkLWY1MjYtNDY3Yy1iNTdmLWYwMWNhMjJlY2FiYiJ9.kWKKYbjmNQ0aA8McO0prFUnyL7Yyipz70-SAplbj3ts"
+
+
 # [vars]
 # MY_VAR = "my-variable"
 
