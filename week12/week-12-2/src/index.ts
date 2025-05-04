@@ -236,7 +236,7 @@ a[0]=23 // we get no error
 
 
 import { z}from "zod"
-import express from "express "
+import express from "express"
 const app = express()
 app.use(express.json ())
 const userPorfileSchema = z.object({
@@ -247,7 +247,7 @@ const userPorfileSchema = z.object({
 
 app.put ("/user", (req,res)=>{
     const result = userPorfileSchema . safeParse(req.body)
-if(!result.success){
+if(uccess!result.s){
     res.status (400).json({error:result.error})
     return
 }
